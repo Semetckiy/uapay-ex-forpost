@@ -1,0 +1,9 @@
+
+<div *ngIf="!(loggedIn$ | async); else userLoggedIn" class="container">
+  <h1>Webapp demo</h1>
+  <ama-ng-login></ama-ng-login>
+</div>
+
+<ng-template #userLoggedIn>
+  <app-search-page></app-search-page>
+</ng-template>

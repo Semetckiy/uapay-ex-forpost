@@ -1,0 +1,14 @@
+<div class="form-row">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" (ngModelChange)="onRadiusChecked($event)"
+       [prefixId]="id">
+    <label class="form-check-label" [prefixFor]="id">{{label}} {{airport}}: {{input.value}} {{distanceUnit}}
+    </label>
+  </div>
+</div>
+<div [formGroup]="parentForm" class="form-row">
+  <span>{{minDistance}}</span>
+  <input #input [formControlName]="radiusFormControl" style="width: calc(100% - 40px);" [min]="minDistance"
+    [max]="maxDistance" type="range">
+  <span>{{maxDistance}}</span>
+</div>

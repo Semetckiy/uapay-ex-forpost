@@ -1,0 +1,30 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "../**/*spec.ts",
+    "../**/*.specs.ts",
+    "../**/specs.ts",
+    "../../../node_modules/**/main.ts",
+    "../../../node_modules/**/standalone/*.*.ts",
+    "../../../node_modules/**/standalone/index.ts",
+    "../../../node_modules/**/app.*.ts",
+    "../../node_modules/**/main.ts",
+    "../../node_modules/**/standalone/*.*.ts",
+    "../../node_modules/**/standalone/index.ts",
+    "../../node_modules/**/app.*.ts",
+    "../../../**/*spec.ts",
+    "../../../**/*.specs.ts",
+    "../../../**/specs.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "../../../node_modules/@seco/**/*.ts",
+    "../../webapp-search-and-book/**/*.ts"
+  ]
+}

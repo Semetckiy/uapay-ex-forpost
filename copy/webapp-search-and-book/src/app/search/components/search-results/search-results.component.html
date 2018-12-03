@@ -1,0 +1,81 @@
+<ng-container *ngIf="bookState$ | async as bookState">
+  <ng-container *ngIf="resultState$ | async as resultState">
+    <app-error-message *ngIf="resultState.errorMessage" [message]="resultState.errorMessage"></app-error-message>
+
+    <ng-container *ngIf="bookState.step === 'results' && resultState.progress.total">
+      <div *ngIf="resultState.progress.done !== resultState.progress.total" class="row">
+        <div class="filters-container col-md-12 mb-5">
+          <app-search-loader></app-search-loader>
+        </div>
+      </div>
+
+      <div *ngIf="resultState.progress.done === resultState.progress.total" class="row">
+        <div class="filters-container col-md-12 mb-5">
+          <div *ngIf="resultState.totalResultCount" class="row">
+            <div class="filters-container col-md-3 mb-5">
+              <app-filters></app-filters>
+            </div>
+
+            <div class="results-container col-md-9 mb-5">
+              <h2>Search results: {{ resultState.resultCount }}</h2>
+
+              <hr/>
+
+              <ng-container *ngIf="resultState.resultCount">
+                <ng-container *ngFor="let searchResult of resultState.results; let i = index">
+                  <app-search-results-item
+                    [searchResult]="searchResult"
+                    [key]="i"
+                    (book)="book($event)"
+                  ></app-search-results-item>
+                </ng-container>
+
+                <div *ngIf="resultState.pages as pages" class="mt-4">
+                  <ngb-pagination
+                    class="d-flex justify-content-center"
+                    [collectionSize]="resultState.resultCount"
+                    [page]="pages.current"
+                    [pageSize]="pages.limit"
+                    (pageChange)="onPageChange($event)"
+                    [maxSize]="5"
+                    [boundaryLinks]="true"
+                  ></ngb-pagination>
+                </div>
+              </ng-container>
+
+              <app-search-results-is-empty *ngIf="!resultState.resultCount"></app-search-results-is-empty>
+            </div>
+          </div>
+
+          <div *ngIf="!resultState.totalResultCount" class="row">
+            <div class="filters-container col-md-12 mb-5">
+              <app-search-results-is-empty></app-search-results-is-empty>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="bookState.step === 'form'">
+      <div class="mb-5">
+        <app-book-form
+          (onBook)="performBookTripPlan($event)"
+          (onBack)="backToResults($event)"
+          [data]="bookState.searchResult"
+          [searchParams]="resultState.searchParams"
+          [searchResultItem]="bookState.searchResult"
+          [solutionIds]="bookState.bookData.elements"
+        ></app-book-form>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="bookState.step === 'pnr'">
+      <div class="mb-5" *ngIf="bookState.pnr && bookState.pnr.success">
+        <div *ngFor="let entry of bookState.pnr.success.LIST_CRYPTIC_SCREEN">
+          <h3 class="mt-2">{{ entry.ENTRY }}</h3>
+          <div *ngFor="let line of entry.CRYPTIC_SCREEN.split('\n')">{{ line }}</div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>

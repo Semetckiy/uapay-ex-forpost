@@ -1,0 +1,13 @@
+<ngb-accordion [destroyOnHide]="false">
+  <ngb-panel [title]="title">
+    <ng-template ngbPanelContent>
+      <ama-airpulse-search-radius [radiusFormControl]="'fromAirportRadius'" [parentForm]="radiusForm"
+        label="{{ 'snb.search_panel.from.label' | translate }}" [airport]="fromAirport"
+        [id]="fromAirportRadiusId">
+      </ama-airpulse-search-radius>
+      <ama-airpulse-search-radius [radiusFormControl]="'toAirportRadius'" [parentForm]="radiusForm"
+        label="{{ 'snb.search_panel.to.label' | translate }}" [airport]="toAirport"
+        [id]="toAirportRadiusId"></ama-airpulse-search-radius>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

@@ -1,0 +1,33 @@
+<div class="design-factory-v2">
+
+  <div class="page-container-desktop">
+
+    <div class="row">
+
+      <div class="col-md-3">
+
+        <ng-content select="lib-ux-nav-bar-account"></ng-content>
+
+      </div>
+
+      <div class="col-md-9">
+
+        <ng-container [ngSwitch]="name">
+
+          <ng-container *ngSwitchCase="'profile'">
+            <ng-content select="lib-ux-profile"></ng-content>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'agency'">
+            <ng-content select="lib-ux-agency"></ng-content>
+          </ng-container>
+
+        </ng-container>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

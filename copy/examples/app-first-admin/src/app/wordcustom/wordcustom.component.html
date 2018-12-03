@@ -1,0 +1,105 @@
+<div class="container-fluid pt-3 design-factory-v2">
+  <div class="row align-items-end">
+    <div class="col flex-grow-0 flex-shrink-0 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setDictionary(null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [(collectionSize)]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+    <div class="col flex-grow-1 flex-shrink-0 d-flex justify-content-end align-items-end">
+      <p-form-group label="Country:">
+        <select pFormControlInput [(ngModel)]="countryCode" (ngModelChange)="loadTotal($event);loadPage($event)" id="country" class="w-auto" name="countryCode">
+          <option value="" selected>All</option>
+          <option *ngFor="let country of countries | keyvalue" value="{{ country.value }}">{{ country.key }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Language:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="lang" (ngModelChange)="loadTotal($event);loadPage($event)" id="lang" class="w-auto" name="lang">
+          <option value="" selected>All</option>
+          <option *ngFor="let lang of langs" value="{{ lang }}">{{ lang }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Key:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="name" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="name" name="name">
+      </p-form-group>
+      <p-form-group label="Translation:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="namelang" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="namelang" name="namelang">
+      </p-form-group>
+      <p-form-group label="Country specific translation:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="namelang" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="namelang" name="namelang">
+      </p-form-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th class="w-0 text-left" scope="col"></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('id');loadPage(sort='id')" href="javascript:void(0)"><small *ngIf="sort === 'id'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>ID</a></th>
+            <th class="w-0 text-nowrap" scope="col"><a class="text-white" (click)="changeOrder('lang');loadPage(sort='lang')" href="javascript:void(0)"><small *ngIf="sort === 'lang'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Country</a></th>
+            <th class="w-0 text-nowrap" scope="col"><a class="text-white" (click)="changeOrder('lang');loadPage(sort='lang')" href="javascript:void(0)"><small *ngIf="sort === 'lang'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Language</a></th>
+            <th class="w-33" scope="col"><a class="text-white" (click)="changeOrder('name');loadPage(sort='name')" href="javascript:void(0)"><small *ngIf="sort === 'name'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Key</a></th>
+            <th class="w-33" scope="col"><a class="text-white" (click)="changeOrder('namelang');loadPage(sort='namelang')" href="javascript:void(0)"><small *ngIf="sort === 'namelang'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Default translation</a></th>
+            <th class="w-34" scope="col"><a class="text-white" (click)="changeOrder('namelang');loadPage(sort='namelang')" href="javascript:void(0)"><small *ngIf="sort === 'namelang'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Country specific translation</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of keys" class="col">
+            <td class="text-left"><a (click)="setDictionary(key.id, key.name, key.lang, key.namelang)" class="icon-pencil" href="javascript:void(0)" [pOpenModal]="modalEdit"></a></td>
+            <td class="text-center">{{ key.id }}</td>
+            <td class="text-nowrap">{{ key.lang }}</td>
+            <td class="text-nowrap">{{ key.lang }}</td>
+            <td>{{ key.name }}</td>
+            <td>{{ key.namelang }}</td>
+            <td>{{ key.namelang }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div class="col-6 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setDictionary(null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+  </div>
+</div>
+<ng-template #modalEdit let-c="close" let-d="dismiss">
+  <p-modal (dismiss)="d($event)" title="EDIT TRANSLATION" [dismissible]="true">
+    <form [formGroup]="dictionaryForm" (ngSubmit)="onSubmit()">
+      <p-form-group *ngIf="currentID !== null" label="ID:">
+        <input pFormControlInput type="text" id="modalID" [value]="currentID" [title]="currentID" readonly>
+      </p-form-group>
+      <p-form-group label="Country:">
+        <select pFormControlInput id="modalCountry">
+          <option value="" hidden disabled selected></option>
+          <option *ngFor="let country of countries | keyvalue" value="{{ country.value }}" [selected]="(currentCountry === country.value) ? 'selected' : null">{{ country.key }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Language:">
+        <select pFormControlInput id="modalLang" [title]="currentLang"><!-- [disabled]="currentID === null ? null : 'disabled'"-->
+          <option value="" hidden disabled selected></option>
+          <option *ngFor="let lang of langs" value="{{ lang }}" [selected]="(currentLang === lang) ? 'selected' : null">{{ lang }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Key:">
+        <select pFormControlInput id="modalKeysList">
+          <option value="" hidden></option>
+          <option *ngFor="let key of keysList" value="{{ key }}" [selected]="(currentName === key) ? 'selected' : null">{{ key }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group *ngIf="currentID !== null" label="Default translation:">
+        <input pFormControlInput type="text" id="modalNameLang" [value]="currentNameLang"  [title]="currentNameLang" readonly>
+      </p-form-group>
+      <p-form-group label="Country specific translation:">
+        <input pFormControlInput type="text" id="modalCustomNameLang" formControlName="modalCustomNameLang" pattern=".*" [ngClass]="{ 'is-valid': !submitted || !f.modalCustomNameLang.errors, 'is-invalid': submitted && f.modalNameLang.errors }" [value]="currentNameLang"  [title]="currentNameLang">
+        <div class="invalid-feedback" *ngIf="submitted && f.modalCustomNameLang.errors"><div *ngIf="f.modalCustomNameLang.errors.required">Please provide a valid translation.</div></div>
+      </p-form-group>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-outline-primary" [disabled]="loading" (click)="c('close')">Cancel</button></p-form-group>
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" [disabled]="loading">Apply</button></p-form-group>
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" (click)="c('save')" [disabled]="loading">Copy</button></p-form-group>
+      </div>
+    </form>
+  </p-modal>
+</ng-template>

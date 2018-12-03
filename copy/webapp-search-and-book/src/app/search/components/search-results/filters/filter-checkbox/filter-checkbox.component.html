@@ -1,0 +1,15 @@
+<div *ngFor="let option of filter.options" class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    [value]="option.name"
+    id="option-{{filter.name}}-{{option.name}}"
+    [checked]="selected(option.name)"
+    (change)="onChange($event.target)"
+  />
+
+  <label
+    class="form-check-label"
+    for="option-{{filter.name}}-{{option.name}}"
+  >{{option.title}}</label>
+</div>

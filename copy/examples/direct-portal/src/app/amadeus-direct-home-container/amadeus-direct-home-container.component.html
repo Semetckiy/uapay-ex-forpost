@@ -1,0 +1,31 @@
+<div class="container px-5 pb-4">
+<h1 class="display-1 text-white py-4">{{loginUserName}}</h1>
+      <div class="row">
+        <div class="col-12">
+          <p-tile headline="Search Flights" class="d-block">
+            <app-search-form (performSearch)="search($event)" class="d-block px-3 pb-1"></app-search-form>
+          </p-tile>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <app-empty-tile class="d-block tile--big">
+              <app-amadeus-direct-iframe targetSource="https://www.preview.amadeus-direct.com/api/shortNews" iframe_id="iframe_news"></app-amadeus-direct-iframe>
+          </app-empty-tile>
+      </div>
+      <div class="col-12 col-md-4">
+          <p-tile headline="My Tasks" class="tile-task-manager d-block mt-4">
+            <a class="ml-auto text-uppercase font-weight-bold" pArrowLink [routerLink]="['/tasks']">All My  Tasks</a>
+            <app-tasks-tile-page class="position-absolute h-100 w-100">
+            </app-tasks-tile-page>
+          </p-tile>
+      </div>
+
+        <div class="col-12 col-md-4">
+            <app-empty-tile class="d-block tile--big">
+                <app-amadeus-direct-iframe targetSource="https://www.preview.amadeus-direct.com/api/dash" iframe_id="iframe_dashboard"></app-amadeus-direct-iframe>
+            </app-empty-tile>
+        </div>
+
+      </div>
+    </div>

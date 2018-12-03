@@ -1,0 +1,92 @@
+<nav class="navbar navbar-light bg-white">
+  <span class="navbar-brand mb-0 h1">Amadeus Direct</span>
+</nav>
+<div class="">
+  <nav class="sidebar bg-white">
+    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+      <li class="d-block">
+        <a class="nav-link" [routerLink]="['/']">
+          <img src="/app_webapp-static/assets/images/home.svg">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">Home</span>
+        </a>
+      </li>
+      <li class="nav-item d-block">
+        <a class="nav-link" target="_blank" href="https://www.preview.amadeus-direct.com/api/dashboard"><img
+          src="/app_webapp-static/assets/images/dashboard.svg"
+          class="w-100">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item d-block">
+        <a class="nav-link" [routerLink]="['search']">
+          <img src="/app_webapp-static/assets/images/book.svg">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">Book</span>
+        </a>
+      </li>
+      <li class="nav-item d-block">
+        <a class="nav-link" target="_blank" href="https://www.preview.amadeus-direct.com/api/news">
+          <img src="/app_webapp-static/assets/images/news.svg">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">News</span>
+        </a>
+      </li>
+      <li class="nav-item d-block">
+        <a class="nav-link" [routerLink]="['/']">
+          <img src="/app_webapp-static/assets/images/store.svg">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">Store</span>
+        </a>
+      </li>
+      <li class="nav-item d-block">
+        <a class="nav-link" [routerLink]="['tasks']">
+          <img src="/app_webapp-static/assets/images/task.svg">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">Tasks</span>
+        </a>
+      </li>
+      <li class="nav-item d-block">
+        <a class="nav-link" [routerLink]="['/']">
+          <img src="/app_webapp-static/assets/images/account.svg">
+          <span class="text-center text-truncate d-block w-100 font-size-regular">My Account</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-none d-md-block mt-5">
+      <p-footer>
+        <p-footer-column columnTitle="About Ammadeus" class="col-12 col-md-3">
+          <p-nav-item><a class="d-inline-block py-1" href="#">Amadeus Store</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">News</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">Amadeus.com</a></p-nav-item>
+        </p-footer-column>
+        <p-footer-column columnTitle="My Account" class="col-12 col-md-3">
+          <p-nav-item><a class="d-inline-block py-1" href="#">Profile details</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">Agency Details</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">Orders</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">Inventory</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">Agency Wishlist</a></p-nav-item>
+        </p-footer-column>
+        <p-footer-column columnTitle="My Business" class="col-12 col-md-3">
+          <p-nav-item><a class="d-inline-block py-1" href="#">Dashboard</a></p-nav-item>
+          <p-nav-item><a class="d-inline-block py-1" href="#">Service Hub</a></p-nav-item>
+        </p-footer-column>
+        <p-footer-column columnTitle="Contact Us" class="col-12 col-md-3">
+          <p-nav-item><span class="d-inline-block py-1" >Amadeus Marketing (Schweiz) AG Pfingstweidstrasse 60, 8005 Zürich/Switzerland +41 44 217 97 97</span></p-nav-item>
+          <p-nav-item><a href="#">ask a question</a></p-nav-item>
+        </p-footer-column>
+        <p-nav-item>
+          <a class="nav-link text-secondary" href="#">Terms of Use</a>
+        </p-nav-item>
+        <p-nav-item>
+          <a class="nav-link text-secondary" href="#">Cookies Policy</a>
+        </p-nav-item>
+        <p-nav-item>
+          <a class="nav-link text-secondary" href="#">Privacy Policy</a>
+        </p-nav-item>
+      </p-footer>
+    </div>
+  </div>
+</div>

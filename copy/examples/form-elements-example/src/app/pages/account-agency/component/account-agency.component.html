@@ -1,0 +1,15 @@
+<lib-ux-page-section>
+
+  <lib-ux-page-title [title]="'My Account'" [description]="'You can find here all information related to your account'"></lib-ux-page-title>
+
+  <lib-ux-page-container name="agency">
+
+    <lib-ux-nav-bar-account></lib-ux-nav-bar-account>
+
+    <lib-ux-agency [entity]="agency" *ngIf="agency"></lib-ux-agency>
+
+  </lib-ux-page-container>
+
+</lib-ux-page-section>
+
+<lib-ux-list-links></lib-ux-list-links>

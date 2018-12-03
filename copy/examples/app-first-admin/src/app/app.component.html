@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div>
+  <p-confirm-alert (close)="closeAlert($event)" *ngIf="displayAlert">
+    <h5>Amadeus Direct will be undergoing a brief scheduled maintenance on Saturday, March 31st at 10:00 UTC. </h5>
+    <p>Users might experience degraded performance during this time and small interrupts.</p>
+    <button confirm-alert-button type="button" class="btn btn-primary mb-2 mb-md-0 mr-2">Ok, I got it!</button>
+    <span confirm-alert-checkbox>Don't show me this again</span>
+  </p-confirm-alert>
+</div>-->
+
+<p-page-layout
+  [headerConfig]="pageService.headerConfig$ | async">
+  <router-outlet></router-outlet>
+</p-page-layout>

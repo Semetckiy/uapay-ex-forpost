@@ -1,0 +1,7 @@
+<div class="form-group col-md-4 is-group">
+  <label class="is-label">{{ label }}</label>
+  <select class="form-control is" [value]="value">
+    <option *ngFor="let option of options" [value]="option.id">{{ option.value }}</option>
+  </select>
+  <small class="form-text is-description">{{ description }}</small>
+</div>

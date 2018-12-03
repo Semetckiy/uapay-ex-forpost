@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="31px" viewBox="0 0 27 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/nav/on/store</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage-v.2.1/desktop" transform="translate(-42.000000, -541.000000)">
+            <g id="menu-left" transform="translate(17.000000, 135.000000)">
+                <g id="Store" transform="translate(11.000000, 395.000000)">
+                    <g id="icons/nav/on/store">
+                        <rect id="Rectangle" x="0" y="0" width="54" height="54"></rect>
+                        <path d="M34.894,37.462 C31.008,39.724 27.702,41.464 21.96,41.464 C17.204,41.464 15,38.97 15,34.04 C15,27.428 18.132,24.644 24.86,24.644 L34.894,24.644 L34.894,21.28 C34.894,16.408 33.56,13.972 26.832,13.972 C23.932,13.972 21.09,14.32 18.132,14.61 C17.784,14.61 17.726,14.552 17.668,14.32 L17.552,13.682 C17.552,13.45 17.668,13.334 17.842,13.276 C20.51,12.29 24.57,12 26.658,12 C34.604,12 36.866,14.436 36.866,21.57 L36.866,37.346 C36.866,39.376 37.446,39.492 39.592,39.608 C39.824,39.608 39.94,39.724 39.94,39.956 L39.94,40.71 C39.94,40.942 39.824,41.116 39.36,41.174 C35.88,41.406 34.894,40.652 34.894,37.462 Z M34.894,35.664 L34.894,26.5 L24.628,26.5 C20.278,26.5 17.146,27.834 17.146,33.808 C17.146,38.274 18.654,39.608 23.12,39.608 C27.18,39.608 33.386,36.476 34.894,35.664 Z" id="icons/store/on/desktop" stroke="#005EB8" fill="#005EB8"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

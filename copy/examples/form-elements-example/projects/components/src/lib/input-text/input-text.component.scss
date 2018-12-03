@@ -1,0 +1,36 @@
+.it {
+  height: 51px;
+  width: 270px;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+}
+
+.it-group {
+  padding-left: 5px;
+  padding-right: 25px;
+}
+
+.it-value {
+  color: #191919;
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  line-height: 31px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.it-label {
+  color: #191919;
+  width: 270px;
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  line-height: 31px;
+}
+
+.it-description {
+  color: #666666;
+  width: 270px;
+  font-family: "Source Sans Pro";
+  font-size: 15.75px;
+  line-height: 28px;
+}

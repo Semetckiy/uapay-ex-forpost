@@ -1,0 +1,127 @@
+<div class="background-hero-image position-absolute w-100 h-100">
+  <div style="background: linear-gradient(179.47deg, #000000 0%, rgba(255,255,255,0) 100%);">
+    <div class="row">
+      <div class="col-12">
+          <nav class="navbar navbar-light bg-white">
+              <span class="navbar-brand mb-0 h1">Amadeus Direct</span>
+            </nav>
+      </div>
+
+    </div>
+      
+     <div class="row">
+       <div class="col-12 col-md-1 d-none d-md-block">
+          <nav class="navbar navbar-expand navbar-light bg-white 
+          flex-md-column flex-row align-items-start" style="height:100%;">
+          <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+              <li class="nav-item d-block">
+                  <a class="nav-link pl-0" [routerLink]="['/']"><img  src="/app_webapp-static/assets/images/home.svg"
+                    class="w-100">
+<<<<<<< HEAD
+                    <span class="text-center text-truncate d-block w-100 font-size-regular">Home</span>
+=======
+                    <span class="text-center text-truncate d-block w-100">Home</span>
+                  </a>
+              </li>
+              <li class="nav-item d-block">
+                  <a class="nav-link pl-0" [routerLink]="['tasks']"><img  src="/app_webapp-static/assets/images/task.svg"
+                    class="w-100">
+                    <span class="text-center text-truncate d-block w-100">Task</span>
+>>>>>>> 96f40c29ce5da9129bb6054dfca7144c4b43508b
+                  </a>
+              </li>
+              <li class="nav-item d-block">
+                  <a class="nav-link pl-0" [routerLink]="['/']"><img  src="/app_webapp-static/assets/images/dashboard.svg"
+                    class="w-100">
+                    <span class="text-center text-truncate d-block w-100 font-size-regular">Dashboard</span>
+                  </a>
+              </li>
+              <li class="nav-item d-block">
+<<<<<<< HEAD
+                <a class="nav-link pl-0" href="/#/"><img  src="assets/images/book.svg"
+                  class="w-100">
+                  <span class="text-center text-truncate d-block w-100 font-size-regular">Book</span>
+                </a>
+            </li>
+              <li class="nav-item d-block">
+                  <a class="nav-link pl-0" href="/#/"><img  src="assets/images/news.svg"
+=======
+                  <a class="nav-link pl-0" [routerLink]="['/']"><img  src="/app_webapp-static/assets/images/news.svg"
+>>>>>>> 96f40c29ce5da9129bb6054dfca7144c4b43508b
+                    class="w-100">
+                    <span class="text-center text-truncate d-block w-100 font-size-regular">News</span>
+                  </a>
+              </li>
+              <li class="nav-item d-block">
+                <a class="nav-link pl-0" href="/#/"><img  src="assets/images/store.svg"
+                  class="w-100">
+                  <span class="text-center text-truncate d-block w-100 font-size-regular">Store</span>
+                </a>
+            </li>
+              <li class="nav-item d-block">
+                <a class="nav-link pl-0" href="/#/tasks"><img  src="assets/images/task.svg"
+                  class="w-100">
+                  <span class="text-center text-truncate d-block w-100 font-size-regular">Tasks</span>
+                </a>
+            </li>
+            <li class="nav-item d-block">
+              <a class="nav-link pl-0" href="/#/tasks"><img  src="assets/images/account.svg"
+                class="w-100">
+                <span class="text-center text-truncate d-block w-100 font-size-regular">My Account</span>
+              </a>
+          </li>
+          </ul>
+          </nav>
+       </div>
+    <div class="col-12 col-md-11">  
+    <div class="container px-5">
+      <h1 class="display-1 text-white py-4">{{loginUserName}}</h1>
+      <div class="row">
+        <div class="col-12">
+          <p-tile headline="Search Flights" class="d-block">
+            <app-search-form (performSearch)="search($event)" class="d-block px-3 pb-1"></app-search-form>
+          </p-tile>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <app-empty-tile class="d-block tile--big">
+              <app-amadeus-direct-iframe targetSource="https://www.preview.amadeus-direct.com/api/shortNews" iframe_id="iframe_news"></app-amadeus-direct-iframe>
+          </app-empty-tile>
+      </div>
+        <!-- <div class="col-12 col-md-4">
+          <div class="row">
+            <div class="col-12">
+              <p-tile headline="My Tasks" class="d-block tile-task-manager">
+                <a class="ml-auto text-uppercase font-weight-bold" pArrowLink [routerLink]="['tasks']">All My  Tasks</a>
+                <app-tasks-tile-page class="position-absolute h-100 w-100">
+                </app-tasks-tile-page>
+              </p-tile>
+              <p-tile headline="Amadeus First" class="d-block tile--small">
+
+              </p-tile>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-12 col-md-4">
+          <p-tile headline="My Tasks" class="tile-task-manager d-block mt-4">
+            <a class="ml-auto text-uppercase font-weight-bold" pArrowLink [routerLink]="['tasks']">All My  Tasks</a>
+            <app-tasks-tile-page class="position-absolute w-100">
+            </app-tasks-tile-page>
+          </p-tile>
+      </div>
+
+        <div class="col-12 col-md-4">
+            <app-empty-tile class="d-block tile--big">
+                <app-amadeus-direct-iframe targetSource="https://www.preview.amadeus-direct.com/api/dash" iframe_id="iframe_dashboard"></app-amadeus-direct-iframe>
+            </app-empty-tile>
+        </div>
+
+      </div>
+      
+      
+  </div>
+
+  </div>
+  </div>
+</div>

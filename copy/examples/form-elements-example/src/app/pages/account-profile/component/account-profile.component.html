@@ -1,0 +1,15 @@
+<lib-ux-page-section>
+
+  <lib-ux-page-title [title]="title" [description]="description"></lib-ux-page-title>
+
+  <lib-ux-page-container name="profile">
+
+    <lib-ux-nav-bar-account></lib-ux-nav-bar-account>
+
+    <lib-ux-profile [entity]="profile" *ngIf="profile"></lib-ux-profile>
+
+  </lib-ux-page-container>
+
+</lib-ux-page-section>
+
+<lib-ux-list-links></lib-ux-list-links>

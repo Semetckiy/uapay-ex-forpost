@@ -1,0 +1,256 @@
+@media screen and (max-width: 576px) {
+  .header-logo-link {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 42px;
+  }
+  .header-logo-text {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 100;
+    line-height: 42px;
+  }
+  .sr-cr-menu-hide {
+    display: none;
+  }
+  .navbar-md-lg {
+    display: none;
+  }
+  .bhi-margin {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .header-logo-link {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 42px;
+  }
+  .header-logo-text {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 100;
+    line-height: 42px;
+  }
+  .sr-cr-menu-hide {
+    display: none;
+  }
+  .navbar-md-lg {
+    display: none;
+  }
+  .bhi-margin {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .header-logo-link {
+    color: #005EB8;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 54px;
+  }
+  .header-logo-text {
+    color: #005EB8;
+    font-size: 36px;
+    font-weight: 100;
+    line-height: 54px;
+  }
+  .sr-cr-nav-hide {
+    display: none;
+  }
+  .navbar-sm {
+    display: none;
+  }
+  .bhi-margin {
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-logo-link {
+    color: #005EB8;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 54px;
+  }
+  .header-logo-text {
+    color: #005EB8;
+    font-size: 36px;
+    font-weight: 100;
+    line-height: 54px;
+  }
+  .sr-cr-nav-hide {
+    display: none;
+  }
+  .navbar-sm {
+    display: none;
+  }
+  .bhi-margin {
+    margin-right: 50px;
+  }
+}
+
+
+
+
+
+
+
+.header-main-logo {
+  color: #005EB8;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 54px;
+}
+
+.header-logo {
+  color: #005EB8;
+  font-size: 36px;
+  font-weight: 100;
+  line-height: 54px;
+}
+
+.top-header-items {
+  color: #666666;
+  font-size: 15.75px;
+  line-height: 28px;
+  margin-left: 50px;
+}
+
+.bottom-header-items {
+  color: #666666;
+  font-size: 18px;
+  line-height: 31px;
+}
+
+.top-header {
+  background-color: #fff;
+  padding-left: 50px;
+  height: 84px;
+}
+
+.bottom-header {
+  background-color: #fff;
+  padding-left: 50px;
+  height: 74px;
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.no-marg-pad-left {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.menu-item-active {
+  color: #005eb8;
+}
+
+.mobile-header-text {
+  font-size: 24px;
+  line-height: 42px;
+  color: #005EB8;
+}
+
+a.mobile-header-text {
+  color: #005EB8;
+}
+a.mobile-header-text:hover {
+  color: #005EB8;
+}
+
+.mobile-header-logo {
+  font-size: 24px;
+  line-height: 42px;
+  color: #005EB8;
+  margin-left: -15px;
+}
+
+.f-100 {
+  font-weight: 100;
+}
+
+.f-300 {
+  font-weight: 300;
+}
+
+.mobile-header-badge {
+  margin-top: 3px;
+  line-height: 42px;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.mobile-header-cart {
+  line-height: 42px;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.mobile-header-search {
+  line-height: 42px;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.no-left-right-pad {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.mobile-header-cart-icon {
+  height: 25px;
+  width: 30px;
+  /*background: #fff url("../../../../assets/img/svg_ico/ico-shopping.svg") no-repeat center center;*/
+}
+
+.mobile-header-search-icon {
+  height: 25px;
+  width: 30px;
+  /*background: #fff url("../../../../assets/img/svg_ico/ico-search-header.svg") no-repeat center center;*/
+}
+
+.mobile-menu-item {
+  color: rgba(255, 255, 255, 1);
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+}
+
+.mobile-menu-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.mobile-menu-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.mobile-menu-item:hover, .mobile-menu-item:focus {
+  z-index: 1;
+  text-decoration: none;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  padding: 0px;
+  padding-top: 2px;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.mobile-header-block {
+  margin-right: 5px;
+}
+
+.mobile-menu-item-color {
+  color: rgba(255, 255, 255, 1);
+}

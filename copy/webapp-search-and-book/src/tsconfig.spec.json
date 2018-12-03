@@ -1,0 +1,30 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  },
+  "files": [
+    "test.ts",
+    "polyfills.ts"
+  ],
+  "exclude": [
+    "../../../node_modules/**/main.ts",
+    "../../../node_modules/**/standalone/*.*.ts",
+    "../../../node_modules/**/standalone/index.ts",
+    "../../../node_modules/**/app.*.ts",
+    "../../node_modules/**/main.ts",
+    "../../node_modules/**/standalone/*.*.ts",
+    "../../node_modules/**/standalone/index.ts",
+    "../../node_modules/**/app.*.ts"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.spec.ts",
+    "**/*.d.ts",
+    "../../../node_modules/@seco/**/*.ts"
+  ]
+}

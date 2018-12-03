@@ -1,0 +1,34 @@
+<h2>Filters</h2>
+
+<hr/>
+
+<div *ngIf="filters$|async as filters">
+  <ngb-accordion #acc="ngbAccordion" (panelChange)="onPanelChange($event)">
+    <ngb-panel *ngFor="let item of filters|keyvalue:comparator" title="{{item.value.title}}">
+      <ng-container *ngIf="item.value as filter">
+        <ng-template ngbPanelContent>
+          <ng-container [ngSwitch]="filter.type">
+            <app-filter-checkbox
+              *ngSwitchCase="FilterType.Checkbox"
+              [filter]="filter"
+            ></app-filter-checkbox>
+
+            <app-filter-range
+              *ngSwitchCase="FilterType.Range"
+              [filter]="filter"
+              [panelEventEmitter]="panelEventEmitter"
+            ></app-filter-range>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+
+<div class="text-center">
+  <button
+    type="button"
+    class="btn btn-primary mt-3 mb-3"
+    (click)="onReset()"
+  >Reset</button>
+</div>

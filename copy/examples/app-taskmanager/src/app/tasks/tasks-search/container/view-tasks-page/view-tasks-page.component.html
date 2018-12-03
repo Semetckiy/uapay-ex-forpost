@@ -1,0 +1,65 @@
+<div class="hero" style="background: linear-gradient(to bottom, rgba(0,94,184,0.95) 0%, rgba(0,169,224,0.95) 100%);">
+  <div class="container">
+    <h1 class="pt-5 text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Task Manager</h1>
+    <h2 class="pt-3 pb-5 text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Create and follow your daily tasks!</h2>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 300px;">
+  <div class="my-4 d-flex">
+    <button placement="top" ngbTooltip="Create a task" (click)="onNewTaskAddClick()" class="ml-auto btn btn-sm btn-primary qa-btn-new-task"><span class="icon-plus"></span></button>
+  </div>
+  <app-edit-task
+    class="active my-4"
+    [expanded]="true" [editing]="true"
+    [ngbCollapse]="!(showAddPanel$ | async)"
+    [assignees]="users$ | async"
+    [task]="defaultTask$ | async"
+    [isLoading]="taskIsCreating$ | async"
+    (save)="onNewTaskSave($event)"
+    (cancel)="onNewTaskCancel()"
+  ></app-edit-task>
+  <app-filter-tasks
+    [filter]="filter$ | async"
+    [users]="users$ | async"
+    (filterTasks)="onTaskFilter($event)"
+    [expanded]="!(showFilterPanel$ | async)"
+    (filterReset)="onFilterReset($event)"
+    (toggleExpand)="onToggleExpand($event)"
+  ></app-filter-tasks>
+  <app-quick-filter
+    [count]="taskCount$ | async"
+    [showDoneTasks]="showDoneTasks$ | async"
+    (toggleShowDoneTasks)="toggleShowDoneTasks($event)"
+  ></app-quick-filter>
+  <app-notification [settings]="notification$ | async"></app-notification>
+  <app-tasks-list class="mt-4"
+    [tasks]="tasks$ | async"
+    [taskTemplate]="taskTemplate"
+    [selectedTask]="selectedTask$ | async"
+    [loading]="listIsLoading$ | async"
+    [loadingError]="listLoadingError$ | async"
+    [sorting]="sorting$ | async"
+    (sort)="onTasksSort($event)"
+  ></app-tasks-list>
+</div>
+
+<ng-template #taskTemplate let-task="task" let-selectedTask="selectedTask">
+  <app-edit-task class="qa-task-list-item"
+    [class.active]="selectedTask.id == task.id"
+    [editing]="selectedTask.id == task.id && selectedTask.editing"
+    [expanded]="selectedTask.id == task.id && selectedTask.expanded"
+    [isOverdue]="task.dueDate | taskIsOverdue"
+    [task]="task"
+    [isLoading]="taskIsUpdating$ | async"
+    [assignees]="users$ | async"
+    (cancel)="onTaskCancel($event)"
+    (edit)="onTaskEdit($event)"
+    (done)="onTaskDone($event)"
+    (expand)="onTaskExpand($event)"
+    (save)="onTaskSave($event)"
+  ></app-edit-task>
+</ng-template>
+
+
+
+

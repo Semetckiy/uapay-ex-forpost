@@ -1,0 +1,39 @@
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem 1.875rem;
+}
+
+.card-title {
+  color: #191919;
+  font-family: "Source Sans Pro";
+  font-size: 22.5px;
+  line-height: 33px;
+  margin-bottom: 0.9375rem;
+}
+
+.card-text {
+  color: #666666;
+  font-family: "Source Sans Pro";
+  font-size: 15.75px;
+  line-height: 28px;
+}
+
+.card-footer {
+  border-top: none;
+  background-color: #fff;
+  padding-left: 1.875rem;
+  padding-bottom: 1.875rem;
+}
+
+.card-footer-text {
+  color: #005EB8;
+  font-family: "Source Sans Pro";
+  font-size: 13.5px;
+  font-weight: bold;
+  line-height: 13px;
+}
+
+.card-item {
+  padding: 3.75rem 0rem 0rem;
+}

@@ -1,0 +1,52 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "paths": {
+      "@uxdf/ux-components": [
+        "../../main/projects/ux-components/src/public_api"
+      ],
+      "@uxdf/ux-components/*": [
+        "../../main/projects/ux-components/*"
+      ],
+      "@uxdf/p-components": [
+        "../../main/projects/p-components/src/public_api"
+      ],
+      "@uxdf/p-components/*": [
+        "../../main/projects/p-components/*"
+      ],
+      "@uxdf/ioc-model": [
+        "../../main/projects/ioc-model/src/public_api"
+      ],
+      "@uxdf/ioc-model/*": [
+        "../../main/projects/ioc-model/*"
+      ],
+      "@uxdf/ioc-engine": [
+        "../../main/projects/ioc-engine/src/public_api"
+      ],
+      "@uxdf/ioc-engine/*": [
+        "../../main/projects/ioc-engine/*"
+      ],
+      "@uxdf/ioc-engine-rx": [
+        "../../main/projects/ioc-engine-rx/src/public_api"
+      ],
+      "@uxdf/ioc-engine-rx/*": [
+        "../../main/projects/ioc-engine-rx/*"
+      ]
+    }
+  }
+}

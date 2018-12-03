@@ -1,0 +1,244 @@
+.footer-top {
+  height: 80px;
+  border-top: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+.footer-icons-panel {
+  padding-right: 0rem;
+  padding-left: 2.75rem;
+}
+
+.footer-icons-item {
+  background-color: #fff;
+  border: none;
+  color: #656565;
+  padding: 12px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-logo-icon {
+  background-color: #fff;
+  border: none;
+  color: #656565;
+  padding: 12px 0px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  height: 108px;
+  border-top: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+.nav-item .footer-policy-links {
+  color: #666666;
+  font-family: 'Source Sans Pro';
+  font-size: 15.75px;
+  line-height: 28px;
+  padding-right: 0rem;
+  padding-left: 2.75rem;
+}
+
+.nav-item .footer-copy-rights {
+  color: #191919;
+  font-family: "Source Sans Pro";
+  font-size: 15.75px;
+  line-height: 28px;
+  padding-right: 0rem;
+  padding-left: 0.125rem;
+}
+
+.nav-item .footer-logo {
+  width: 9rem;
+  height: 2.6875rem;
+}
+
+
+//.footer {
+//  position: absolute;
+//  bottom: 0;
+//  width: 100%;
+//  height: 188px;
+//  background-color: #fff;
+//}
+//
+//body {
+//  margin-bottom: 188px;
+//}
+
+
+.footer-mobile-socials {
+  height: 60px;
+  border-top: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+}
+
+.footer-mobile-social-panel {
+  padding-right: 1.025rem;
+  padding-left: 1.025rem;
+}
+
+.footer-mobile-social-item {
+  background-color: #fff;
+  border: none;
+  color: #656565;
+  padding: 12px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-mobile-logo-panel {
+  border-top: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+}
+
+.footer-mobile-logo-icon {
+  background-color: #FFFFFF;
+  border: none;
+  color: #656565;
+  padding-top: 1.5625rem;
+  padding-right: 0rem;
+  padding-left: 0rem;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-item .footer-mobile-logo {
+  width: 5.625rem;
+  height: 1.750rem;
+}
+
+.nav-item .footer-mobile-copy-rights {
+  color: #191919;
+  font-family: "Source Sans Pro";
+  font-size: 14px;
+  line-height: 21px;
+  padding-right: 0rem;
+  padding-left: 0rem;
+  padding-top: 0.5625rem;
+}
+
+.footer-mobile-terms {
+  padding-top: 1.5625rem;
+}
+
+.nav-item .footer-mobile-term {
+  color: #666666;
+  font-size: 14px;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.nav-item .active-link {
+  color: red;
+}
+
+//@media screen and (max-width: 576px) {
+//  .footer-desktop {
+//    display: none;
+//  }
+//}
+//
+//@media screen and (min-width: 576px) {
+//  .footer-mobile {
+//    display: none;
+//  }
+//
+//  .footer-desktop {
+//    padding-left: 8.4375rem;
+//    padding-right: 8.4375rem;
+//  }
+//}
+
+
+
+@media screen and (max-width: 576px) {
+  .footer-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .footer-desktop {
+    display: none;
+  }
+
+  .nav-item .footer-policy-links {
+    color: #666666;
+    font-family: 'Source Sans Pro';
+    font-size: 15.75px;
+    line-height: 28px;
+    padding-right: 0rem;
+    padding-left: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .footer-mobile {
+    display: none;
+  }
+
+  .nav-item .footer-policy-links {
+    color: #666666;
+    font-family: 'Source Sans Pro';
+    font-size: 15.75px;
+    line-height: 28px;
+    padding-right: 0rem;
+    padding-left: 1.05rem;
+  }
+
+  .footer-desktop {
+    padding-left: 3.0625rem;
+    padding-right: 3.0625rem;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+
+  .footer-mobile {
+    display: none;
+  }
+
+  .footer-desktop {
+    padding-left: 8.4375rem;
+    padding-right: 8.4375rem;
+  }
+
+  .nav-item .footer-policy-links {
+    color: #666666;
+    font-family: 'Source Sans Pro';
+    font-size: 15.75px;
+    line-height: 28px;
+    padding-right: 0rem;
+    padding-left: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .footer-mobile {
+    display: none;
+  }
+
+  .footer-desktop {
+    padding-left: 8.4375rem;
+    padding-right: 8.4375rem;
+  }
+
+  .nav-item .footer-policy-links {
+    color: #666666;
+    font-family: 'Source Sans Pro';
+    font-size: 15.75px;
+    line-height: 28px;
+    padding-right: 0rem;
+    padding-left: 2.75rem;
+  }
+}

@@ -1,0 +1,69 @@
+<lib-ux-page-sub-title [title]="title" [description]="description"></lib-ux-page-sub-title>
+
+<lib-ux-form [entity]="agency" [name]="'agency'" [action]="'update'">
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="agency.name.value.label"
+      [value]="agency.name.value.value"
+      [description]="agency.name.value.description"
+      [placeholder]="agency.name.value.placeholder"
+      [enabled]="agency.name.value.enabled"
+      [required]="agency.name.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="agency.code.value.label"
+      [value]="agency.code.value.value"
+      [description]="agency.code.value.description"
+      [placeholder]="agency.code.value.placeholder"
+      [enabled]="agency.code.value.enabled"
+      [required]="agency.code.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-line-separator></lib-ux-line-separator>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="'label'"
+      [value]="'Input'"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="'label'"
+      [value]="'Input'"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="'label'"
+      [value]="'Input'"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-line-separator></lib-ux-line-separator>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="'label'"
+      [value]="'Input'"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="'label'"
+      [value]="'Input'"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="'label'"
+      [value]="'Input'"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+</lib-ux-form>

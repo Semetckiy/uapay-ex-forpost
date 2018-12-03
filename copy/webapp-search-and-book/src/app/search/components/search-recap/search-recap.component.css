@@ -1,0 +1,28 @@
+.ptcs {
+  margin-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #E8E8E8;
+  border-radius: 4px;
+}
+
+.line-separator {
+  margin-right: 15px;
+  margin-left: 10px;
+  border-left: solid 2px #E8E8E8;
+}
+
+.recap-link {
+  color: #005EB8;
+  cursor: pointer;
+}
+
+.flight-arrow {
+  transform: rotate(90deg);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.recap-label {
+  margin-right: 5px;
+}

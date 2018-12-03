@@ -1,0 +1,131 @@
+<h1>Travel and payment</h1>
+<hr>
+<div class="form-group">
+  <h3>Itinerary</h3>
+  <div class="mt-2 mb-2">
+    <table class="list-group">
+      <ng-container *ngFor="let segment of segments">
+        <tr class="list-group-item list-group-item-action flex-column align-items-start">
+          <td>
+            {{segment.carrier.airline.code}}{{segment.flightNumber}}
+          </td>
+          <td><div role="separator" aria-orientation="vertical" class="vertical-separator"></div></td>
+          <td>
+            {{segment.cabin}}
+          </td>
+          <td><div role="separator" aria-orientation="vertical" class="vertical-separator"></div></td>
+          <td>
+            {{segment.carrier.departureDate}}
+          </td>
+          <td><div role="separator" aria-orientation="vertical" class="vertical-separator"></div></td>
+          <td>
+            {{segment.carrier.departureLocation}} - {{segment.carrier.arrivalLocation}}
+          </td>
+          <td><div role="separator" aria-orientation="vertical" class="vertical-separator"></div></td>
+          <td>
+            {{segment.carrier.arrivalTime}}
+          </td>
+          <td>-</td>
+          <td>
+            {{segment.carrier.departureTime}}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>
+
+<form [formGroup]="bookForm">
+  <h3>Travellers</h3>
+  <table class="table" formArrayName="travellers">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>PTC</th>
+        <th>Title</th>
+        <th>First name<span class="mandatory-indicator" aria-hidden="true">*</span></th>
+        <th>Last name<span class="mandatory-indicator" aria-hidden="true">*</span></th>
+        <th>Date of birth</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let travellerControl of bookForm.get('travellers').controls; let i = index;">
+        <tr [formGroupName]="i">
+          <td>{{i+1}}</td>
+          <td>
+            {{travellerControl.get('type').value}}
+          </td>
+          <td>
+            <label>
+              <input class="form-control" type="text" formControlName="title">
+            </label>
+          </td>
+          <td>
+            <label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="firstName"
+                [ngClass]="{
+                  'is-invalid': travellerControl.get('firstName').touched && travellerControl.get('firstName').invalid
+                }"
+              >
+            </label>
+          </td>
+          <td>
+            <label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="lastName"
+                [ngClass]="{
+                  'is-invalid': travellerControl.get('lastName').touched && travellerControl.get('lastName').invalid
+                }"
+              >
+            </label>
+          </td>
+          <td>
+            <label>
+              <input class="form-control" type="text" title="YYYYMMDD0000" placeholder="YYYYMMDD0000" formControlName="dateOfBirth">
+            </label>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group">
+        <div>
+          <h3>
+            <label for="formOfPayment">Form of payment<span class="mandatory-indicator" aria-hidden="true">*</span></label>
+          </h3>
+        </div>
+        <select
+          class="form-control form-control-sm"
+          id="formOfPayment"
+          formControlName="formOfPayment"
+          [ngClass]="{
+            'is-invalid': getFormOfPaymentControl().touched && getFormOfPaymentControl().invalid
+          }"
+        >
+          <option value="">Please select</option>
+          <option value="CASH">Cash</option>
+          <option value="INVOICE">Invoice</option>
+          <!--<option value="CHECK">Check</option>-->
+          <!--<option value="CREDITCARD">CREDITCARD</option>-->
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+  <h3>Price Details</h3>
+  <div class="mt-2 mb-2">
+    Total: <b>{{ data.price + data.currencyCode }}</b>
+  </div>
+
+  <input type="button" class="btn mr-2" value="Back" (click)="back($event)" />
+  <input type="submit" class="btn btn-primary" value="Book" (click)="book($event)" [disabled]="!bookForm.valid"/>
+</form>

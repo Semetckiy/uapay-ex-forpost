@@ -1,0 +1,19 @@
+<input #popoverTemplate="ngbPopover" role="button" prefixId="ptc-input" class="form-control input-readonly"
+  [ngbPopover]="popContent" [value]="service.ptcDisplayValue$ | async" readonly triggers="manual"
+  (keydown.enter)="openPopoverOnEnterKeydown($event);"  placement="bottom" (click)="togglePopover()"
+   [autoClose]="false">
+
+<ng-template #popContent>
+  <div class="popover-form-container" (keydown)="dismissPopoverOnKeyPressed($event);">
+    <form [formGroup]="formPTC">
+      <div class="popover-menu">
+        <ama-ng-airpulse-ptc-form [ptcBase]="ptcBase" [formPTC]="formPTC"></ama-ng-airpulse-ptc-form>
+      </div>
+    </form>
+    <div class="form-row modal-footer">
+      <button prefixId="ptcSelectButton" type="button" (click)="onSubmit()" class="btn btn-primary btn-block">
+        {{ 'snb.search_panel.select.button.label' | translate }}
+      </button>
+    </div>
+  </div>
+</ng-template>

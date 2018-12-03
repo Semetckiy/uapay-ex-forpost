@@ -1,0 +1,5 @@
+<div class="form-group select-panel">
+  <select class="select-input" (change)="performAction($event.target.value)">
+    <option *ngFor="let option of attribute.value" [value]="option.id">{{ option.value }}</option>
+  </select>
+</div>

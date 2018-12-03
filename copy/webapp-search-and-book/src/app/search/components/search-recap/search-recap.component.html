@@ -1,0 +1,32 @@
+<div class="row" style="margin-top: 25px;">
+  <div class="col-12">
+    <label><b>{{ resultState.searchParams.outboundFrom.cityName + '. ' + resultState.searchParams.outboundFrom.countryName + ' (' + resultState.searchParams.outboundFrom.iata + ')' }}</b></label>
+    <label class="flight-arrow">
+      <i [ngClass]=" resultState.searchParams.searchType == 'oneWayTrip' ? 'icon-sort-up' : 'icon-sort' "></i>
+    </label>
+    <label><b>{{ resultState.searchParams.inboundTo.cityName + '. ' + resultState.searchParams.inboundTo.countryName + ' (' + resultState.searchParams.inboundTo.iata + ')' }}</b></label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <label class="recap-label"><b>{{ resultState.searchParams.date | textDay }}</b></label>
+    <label class="recap-label"><b>{{ resultState.searchParams.date | numbertDay }}</b></label>
+    <label class="recap-label"><b>{{ resultState.searchParams.date | textMonth }}</b></label>
+    <ng-container *ngIf="resultState.searchParams.searchType !== 'oneWayTrip'">
+      <label class="recap-label"><b>-</b></label>
+      <label class="recap-label"><b>{{ resultState.searchParams.endDate | textDay }}</b></label>
+      <label class="recap-label"><b>{{ resultState.searchParams.endDate | numbertDay }}</b></label>
+      <label class="recap-label"><b>{{ resultState.searchParams.endDate | textMonth }}</b></label>
+    </ng-container>
+    <span class="line-separator"></span>
+    <ng-container *ngFor="let ptcs of getPtcsGroups(resultState.searchParams); let ptcs = index">
+      <label class="ptcs"><b>{{ ptcs.category.length + ' ' + ptcs.code }}</b></label>
+    </ng-container>
+  </div>
+  <div class="col-6 text-right">
+    <label (click)="disableRecapPanel();" class="recap-link">
+      Modify search
+      <i class="icon-pencil" style="margin-left: 4px;"></i>
+    </label>
+  </div>
+</div>

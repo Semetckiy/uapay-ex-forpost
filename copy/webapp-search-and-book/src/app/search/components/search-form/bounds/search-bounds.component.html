@@ -1,0 +1,71 @@
+<div [formGroup]="parentForm">
+  <div class="form-row" formArrayName="formGroup">
+    <div class="form-group col-md-3 col-6">
+      <div class="form-row">
+        <div class="form-group col-12" [formGroupName]="0">
+          <label prefixFor="fromInput">'airpulse.search_panel.from.label'</label>
+          <input #fromAirport type="text" class="form-control" prefixId="fromInput" formControlName="departure"
+            [ngbTypeahead]="airportAutocompletionService.searchAirports" [resultTemplate]="airportSuggestionTemplate"
+            [inputFormatter]="airportAutocompletionService.airportSuggestionFormatter"
+            placeholder="{{ 'snb.search_panel.from.placeholder' | translate }}" />
+        </div>
+        <div class="form-group col-12">
+          <!--<ama-airpulse-search-alternate-airport *ngIf="(radiusDataState$ | async).radiusEnabled"-->
+            <!--title="'airpulse.search_panel.airlinesAndAlliances.outbound'" [boundIndex]="0"-->
+            <!--[toAirport]="toAirport.value" [fromAirport]="fromAirport.value" [parentForm]="parentForm">-->
+          <!--</ama-airpulse-search-alternate-airport>-->
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-3 col-6">
+      <div class="form-row">
+        <div class="form-group col-12" [formGroupName]="1">
+          <label prefixFor="toInput">'airpulse.search_panel.to.label'</label>
+          <input #toAirport type="text" class="form-control" prefixId="toInput" formControlName="departure"
+            [ngbTypeahead]="airportAutocompletionService.searchAirports" [resultTemplate]="airportSuggestionTemplate"
+            [inputFormatter]="airportAutocompletionService.airportSuggestionFormatter"
+            placeholder="{{ 'snb.search_panel.to.placeholder' | translate }}" placement="bottom-right" />
+        </div>
+        <div class="form-group col-12">
+          <!--<ama-airpulse-search-alternate-airport *ngIf="(radiusDataState$ | async).radiusEnabled"-->
+            <!--[boundIndex]="1" title="'airpulse.search_panel.airlinesAndAlliances.inbound'"-->
+            <!--[fromAirport]="toAirport.value" [toAirport]="fromAirport.value" [parentForm]="parentForm">-->
+          <!--</ama-airpulse-search-alternate-airport>-->
+        </div>
+      </div>
+    </div>
+    <!--<div class="form-group col-xl-4 col-md-6 col-12">-->
+      <!--<ama-ng-airpulse-date-picker-mobile (departureDateEvent)="setDepartureDate($event)"-->
+      <!--(returnDateEvent)="setReturnDate($event)"></ama-ng-airpulse-date-picker-mobile>-->
+    <!--</div>-->
+    <div class="col margin-top-search">
+      <button prefixId="search" type="submit" class="btn btn-primary btn-block">
+        <span class="icon-search mr-2"></span>{{ 'snb.search_panel.search.button.label' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #airportSuggestionTemplate let-r="result" let-t="term">
+  <div *ngIf="r.type === suggestionType.CityWithMultipleAirports; then cityBlock else airportBlock"></div>
+  <ng-template #cityBlock>
+    <span class="icon-plane"></span>
+    <span style="margin-left: 0.5rem;" [innerHTML]="'(' + (r.iata | highlightMatch:t) + ') '"></span>
+    <span [innerHTML]="(r.cityName | highlightMatch:t) + ', '"></span>
+    <span>( {{ 'snb.search_panel.airportSuggestion.allAirports' | translate }} - </span>
+    <span>{{ r.countryName }}</span>
+    <span *ngIf="r.stateCode">, {{ r.stateCode }}</span>
+  </ng-template>
+  <ng-template #airportBlock>
+    <span *ngIf="r.type === suggestionType.AirportsInCityWithMultipleAirports; else noIndentBlock"
+      class="icon-level-right"></span>
+    <ng-template #noIndentBlock>
+      <span class="icon-plane"></span>
+    </ng-template>
+    <span style="margin-left: 0.5rem;" [innerHTML]="'(' + (r.iata | highlightMatch:t) + ') '"></span>
+    <span [innerHTML]="(r.cityName | highlightMatch:t) + ', '"></span>
+    <span [innerHTML]="(r.airportName | highlightMatch:t) + ' - '"></span>
+    <span>{{ r.countryName + ' '}}</span>
+    <span *ngIf="r.stateCode">, {{ r.stateCode }}</span>
+  </ng-template>
+</ng-template>

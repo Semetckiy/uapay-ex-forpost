@@ -1,0 +1,23 @@
+<div class="my-4 d-flex">
+
+  <span class="mr-2">{{count.totalCount}} tasks found:</span>
+  <div>
+    <span class="badge badge-info text-white mr-2">{{count.dueCount}} due</span>
+  </div>
+  <div>
+    <span class="badge badge-danger mr-2">{{count.overdueCount}} overdue</span>
+  </div>
+  <div>
+    <span class="badge badge-dark mr-2">{{count.doneCount}} done</span>
+  </div>
+
+  <div class="ml-auto">
+    <div>
+      <p-form-group label="Hide done tasks &nbsp;" (click)="onDoneFilterClick()" class="qa-btn-done-filter">
+        <input class= "qa-cb-filter-done" type="checkbox" [checked]="!showDoneTasks">
+      </p-form-group>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,12 @@
+<lib-ux-page-section [entity]="news" *ngIf="news">
+
+  <lib-ux-news-sort-panel>
+    <lib-ux-select [entity]="sortByCats" [attribute]="sortByCats.options" *ngIf="sortByCats" action="sort"></lib-ux-select>
+    <lib-ux-select [entity]="sortByDate" [attribute]="sortByDate.options" *ngIf="sortByDate" action="sort"></lib-ux-select>
+  </lib-ux-news-sort-panel>
+
+  <lib-ux-news-component [attribute]="news.list"></lib-ux-news-component>
+
+</lib-ux-page-section>
+
+<lib-ux-list-links></lib-ux-list-links>

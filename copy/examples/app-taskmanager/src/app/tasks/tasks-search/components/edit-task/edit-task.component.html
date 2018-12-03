@@ -1,0 +1,100 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" [ngClass]="{'px-3': isNew}" class="qa-frm-task-edit">
+  <div class="grid-24">
+    <div class="col-1 py-2 qa-task-edit-done-toggle" *ngIf="!isNew" (click)="onDoneCheckboxClick(task)"><input #cb [checked]="task.done" type="checkbox" class="ml-2 qa-cb-edit-task-done"></div>
+    <div class="unique py-2" [ngClass]="{'col-24': isNew, 'col-23': !isNew}">
+      <div class="grid-24 qa-task-edit-expand" (click)="onExpandClick(task, !editing)" style="cursor: pointer;">
+        <div class="col-9">
+          <span *ngIf="!editing" [ngClass]="{'text-danger': isOverdue}" class="qa-tasklist-task-title">{{task.title}}</span>
+          <div>
+            <input [ngClass]="{'is-invalid': submitted && form.get('title').invalid}" *ngIf="editing" type="text" class="form-control form-control-sm qa-tb-new-task-title" placeholder="Your task title *" formControlName="title">
+            <div class="invalid-feedback">
+              Title is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <ng-container *ngIf="!editing"><span [ngClass]="{'text-danger': isOverdue}"><span [ngClass]="{'icon-warning mr-2': isOverdue}"></span>{{task.dueDate | dateFormat | date:'dd MMM yy'}}</span></ng-container>
+          <div *ngIf="editing" class="input-group" [closeInputDatePicker]="d" pFormControlInput>
+            <input class="form-control form-control-sm qa-tb-new-task-due-date"
+                   placeholder="yyyy-MM-dd *"
+                   name="dp"
+                   [ngClass]="{'is-invalid': submitted && form.get('dueDate').getError('required')}"
+                   [minDate]="isNew ? today : task.dueDate"
+                   [displayMonths]="displayMonths"
+                   [navigation]="navigation"
+                   ngbDatepicker
+                   #d="ngbDatepicker"
+                   formControlName="dueDate">
+            <div class="input-group-append">
+              <button class="input-group-text btn btn-outline-secondary qa-ca-new-task-due-date" (click)="d.toggle()" type="button" title="Toggle calendar">
+                <span class="icon-calendar"></span>
+              </button>
+            </div>
+            <div class="invalid-feedback">
+              Due date is required.
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <span class="badge badge-pill badge-warning" *ngIf="!editing">{{task.priority | priority}}</span>
+          <select class="form-control form-control-sm qa-se-new-task-priority" *ngIf="editing" formControlName="priority">
+            <option value="">Select priority</option>
+            <option value="10">High</option>
+            <option value="20">Medium</option>
+            <option value="30">Low</option>
+          </select>
+        </div>
+        <div [ngClass]="{'col-4': isNew, 'col-3': !isNew}">
+          <span [ngClass]="{'text-danger': isOverdue}" *ngIf="!editing">{{task.bookingRef || '-'}}</span>
+          <input *ngIf="editing" type="text" class="form-control form-control-sm qa-tb-new-task-booking-reference" placeholder="Booking reference" formControlName="bookingRef">
+        </div>
+        <div class="col-4">
+          <span *ngIf="!editing" [ngClass]="{'text-danger': isOverdue}" class="qa-task-edit-assignee-friendly-name">{{assignees[task.assigneeSign]?.name || '-'}}</span>
+          <select *ngIf="editing" class="form-control form-control-sm qa-task-edit-assignees qa-se-new-task-assignee" formControlName="assigneeSign">
+            <option value="">select assignee</option>
+            <option *ngFor="let assignee of assignees | keyvalue" [value]="assignee.key">{{assignee.value.name}}</option>
+          </select>
+        </div>
+        <div class="col-1 pl-0">
+          <button [disabled]="editing" type="button" *ngIf="!isNew" class="btn btn-link align-text-bottom p-0 qa-btn-edit-task" style="text-decoration: none;" [ngClass]="{'icon-chevron-down': !expanded, 'icon-chevron-up': expanded}"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="qa-edit-task-collapsible" [ngbCollapse]="!expanded">
+    <div class="grid-24">
+      <div [ngClass]="{'col-22 offset-1': !isNew, 'col-24': isNew}">
+        <ng-container *ngIf="!editing">{{task.description || 'No description added.'}}</ng-container>
+        <div>
+          <textarea *ngIf="editing" class="form-control form-control-sm qa-tb-new-task-description" placeholder="Task description" formControlName="description"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="grid-24 py-2">
+      <div [ngClass]="{'col-22 offset-1': !isNew, 'col-24': isNew}">
+
+        <!--<div [ngClass]="{'pl-2': isNew}">
+          <a class="mr-4 qa-ref-edit-task-attach" href="#"><span class="icon-paperclip mr-2"></span>Attach file</a>
+          <a class="mr-4 qa-ref-edit-task-recurrence" href="#"><span class="icon-calendar mr-2"></span>Recurrence</a>
+        </div>-->
+
+      </div>
+    </div>
+    <div class="grid-24 pb-2">
+      <div class="col-12">
+        <!--<div class="small ml-2">[tbd] Created by ??? on 22 OCT 20018</div>
+        <div class="small ml-2">[tbd] Done by ??? on 22 OCT 20018</div>-->
+        <div class="pt-2 small ml-2" *ngIf="editing || isNew">* Mandatory fields</div>
+      </div>
+      <div class="col-12 text-right align-self-end">
+        <!--
+        <button type="button" *ngIf="!isNew" class="btn btn-link qa-btn-edit-task-delete"><span class="icon-trash mr-2"></span>Delete</button>
+        -->
+        <span class="mr-3" *ngIf="isLoading"><app-loading-animation class="mr-3" ></app-loading-animation><span class="small text-primary">Saving task...</span></span>
+        <button type="button" *ngIf="!isNew" class="btn btn-link qa-btn-edit-task-edit" [disabled]="editing" (click)="edit.emit(task)"><span class="icon-edit mr-2"></span>Edit</button>
+        <button type="button" class="btn btn-outline-primary btn-sm mr-3 qa-btn-new-task-cancel qa-btn-edit-task-cancel" (click)="onCancelClick($event)">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-sm qa-btn-new-task-save qa-btn-edit-task-save" [ngClass]="{'mr-3': !isNew}" [disabled]="!editing">Save</button>
+      </div>
+    </div>
+  </div>
+</form>

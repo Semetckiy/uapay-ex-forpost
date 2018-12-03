@@ -1,0 +1,9 @@
+<lib-ux-base-page-contaiter [entity]="config" *ngIf="config">
+
+  <lib-ux-nav-bar [attribute]="config.header"></lib-ux-nav-bar>
+
+  <router-outlet></router-outlet>
+
+  <lib-ux-footer [attribute]="config.footer"></lib-ux-footer>
+
+</lib-ux-base-page-contaiter>

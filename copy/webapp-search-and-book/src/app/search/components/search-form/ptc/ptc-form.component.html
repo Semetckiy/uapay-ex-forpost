@@ -1,0 +1,10 @@
+<div [formGroup]="formPTC">
+  <ul #ptcInputContainer class="container">
+    <li *ngFor="let ptc of ptcBase; let i = index;" class="form-group row">
+      <label class="col-6" [prefixFor]="ptc.key">{{ptc.key}} ({{ptc.code}})</label>
+      <div class="col-6">
+        <input class="col-12" (keyup)="validateNumber(this, $event, ptc);" [formControlName]="ptc.code" [attr.data-index]="i" [prefixId]="ptc.key">
+      </div>
+    </li>
+  </ul>
+</div>

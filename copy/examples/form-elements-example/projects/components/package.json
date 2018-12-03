@@ -1,0 +1,11 @@
+{
+  "name": "components",
+  "version": "0.0.1",
+  "types": "./src/public_api.ts",
+  "peerDependencies": {
+    "@uxdf/ioc-model": "^0.0.1",
+    "@uxdf/ioc-engine": "^0.0.1",
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}

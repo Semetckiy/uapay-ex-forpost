@@ -1,0 +1,38 @@
+<div class="pl-3">
+  <div class="row border-bottom font-weight-light">
+    <div class="col-8 qa-la-widget-col-title">
+      Title
+    </div>
+    <div class="col-4 qa-la-widget-col-due-date">
+      Due Date
+    </div>
+  </div>
+</div>
+
+<div class="flex-grow-1" style="overflow-x: hidden; overflow-y: scroll">
+  <ng-container [ngSwitch]="resultDisplay">
+    <ng-container *ngSwitchCase="resultTypes.RESULT">
+      <div @fadeIn class="h-100">
+        <ng-container *ngFor="let task of tasks">
+          <ng-container *ngTemplateOutlet="taskItemTemplate; context: { task: task }"></ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="resultTypes.LOADING">
+      <div class="position-absolute text-center" style="top: 50%; left: 0; right: 0; margin-top: -2rem;" >
+        <app-loading-animation></app-loading-animation>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="resultTypes.EMPTY_RESULT">
+      <div class="pt-2 text-center">
+        No Tasks. <a href="javascript:void(0)" (click)="onNewTaskClick()">Click here</a> to create one.
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="resultTypes.ERROR">
+      <div class="pt-2 text-center text-danger">
+        Error loading tasks from the server. <br> Please try again later.
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngTemplateOutlet="taskAddTemplate"></ng-container>
+</div>

@@ -1,0 +1,31 @@
+<app-tasks-tile-list
+  [taskItemTemplate]="taskItemTemplate"
+  [taskAddTemplate]="taskAddTemplate"
+  [tasks]="tasks$ | async"
+  [loadingError]="listLoadingError$ | async"
+  [loading]="listIsLoading$ | async"
+  (showAddTask)="onAddExpand()"
+  class="d-flex flex-column"></app-tasks-tile-list>
+
+<ng-template #taskAddTemplate>
+  <app-tasks-tile-add
+    [defaultTask]="defaultTask$ | async"
+    [notificationSettings]="notification$ | async"
+    [isCreating]="taskIsCreating$ | async"
+    [expanded]="taskTileAddVisible$ | async"
+    (expand)="onAddExpand()"
+    (hide)="onAddHide()"
+    (save)="onAddSubmit($event)"
+    class="position-absolute px-3"
+    style="bottom: 0; left: 0; right: 0; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,.9) 30%,rgba(255,255,255,.9) 100%);">
+  </app-tasks-tile-add>
+</ng-template>
+
+<ng-template #taskItemTemplate let-task="task">
+  <app-tasks-tile-item
+    [task]="task"
+    [isOverdue]="task.dueDate | taskIsOverdue"
+    (done)="onTaskDone($event)"
+    (select)="onTaskSelect($event)"
+  ></app-tasks-tile-item>
+</ng-template>

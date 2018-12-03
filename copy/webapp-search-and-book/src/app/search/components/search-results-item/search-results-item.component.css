@@ -1,0 +1,126 @@
+.card-solutions {
+  border-left: solid 5px #F1F1F1;
+  background-color: #FFF;
+  width: 100%;
+  margin-left: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.card-solutions.selected {
+  border-left: solid 5px #F6A623;
+}
+
+.card-solutions div, label {
+  cursor: pointer;
+}
+
+.no-border {
+  border: none;
+}
+
+.collapse-panel {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding-top: 5px;
+  background-color: #005EB8;
+  border-bottom: 3px solid #003252;
+}
+
+.collapse-header {
+  color: white;
+  padding-left: 10px;
+}
+
+.collapse-button {
+  padding-top: 10px;
+  color: white;
+}
+
+.solution-row {
+  padding: 0px 15px 15px;
+}
+
+.solution-selector-panel {
+  background-color: #F1F1F1;
+  width: 100%;
+}
+
+.solution-selector {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.solution-selector-line {
+  border-bottom: solid 2px #CBCBCB;
+}
+
+.solution-selector-radio {
+  margin: 3px 10px 3px 3px;
+}
+
+.divider{
+  color: #4b4b4b;
+  width: 100%;
+  margin: 0px auto;
+  overflow: hidden;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+.divider:before, .divider:after{
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+  width: 50%;
+  border-bottom: 2px dotted #959595;
+  margin: 0 1% 0 -55%;
+}
+.divider:after{
+  margin: 0 -55% 0 1%;
+}
+
+.duration-time {
+  background-color: #F1F1F1;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  color: #7E7E7E;
+}
+
+.segment-num-panel {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.airline-code {
+  color: #5394BF;
+}
+
+.airline-label-panel {
+  padding-left: 10px;
+  padding-top: 0px;
+}
+
+.operatin-airline {
+  margin-top: -10px;
+}
+
+.dep-loc-panel {
+  color: #5394BF;
+  min-width: 30px;
+}
+
+.dep-time-panel {
+  margin-left: 10px;
+}
+
+:host >>> .tooltip-inner {
+  min-width: 180px;
+  background-color: #005EB8;
+  color: #fff;
+}
+:host >>> .tooltip.top .tooltip-arrow:before,
+:host >>> .tooltip.top .tooltip-arrow {
+  min-width: 180px;
+  border-top-color: #005EB8;
+}

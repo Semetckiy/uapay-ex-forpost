@@ -1,0 +1,5 @@
+@import '~design-factory-v2/design-factory-utilities';
+
+:host ::ng-deep .card {
+  border: 1px solid $gray-300 !important;
+}

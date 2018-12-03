@@ -1,0 +1,86 @@
+@import '~design-factory-v2/design-factory-utilities';
+//@import '../../../assets/styles/variables';
+
+// Airline logos
+$img-width: 27px;
+
+// Maximum with of the result page
+$results-width: 728px;
+
+// use it like this to apply styles only for ie10+ : @media #{$ie-10-and-11-only} { ... }
+$ie-10-and-11-only: 'all and (-ms-high-contrast: none), (-ms-high-contrast: active)';
+
+// use it like this to apply styles only for edge v12 : @supports (#{$microsoft-edge-12-only}) { ... }
+$microsoft-edge-12-only: '(-ms-ime-align: auto)';
+
+$typeahead-desktop-max-width: 26rem;
+$typeahead-mobile-max-width: 90vw;
+
+:host ::ng-deep .form-group ngb-typeahead-window.dropdown-menu {
+  max-width: $typeahead-desktop-max-width;
+  max-height: 20rem;
+  width: max-content; // TODO: can be removed with next version of Design Factory with update on typeahead
+  overflow: auto;
+  .dropdown-item {
+    [class^='icon-'] {
+      position: relative;
+      top: 0.12rem;
+    }
+    .icon-plane {
+      color: #9ccaeb;
+    }
+    .icon-level-right {
+      color: #a4a4a4;
+      margin-left: 0.6rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .margin-top-search {
+    margin-top: -1.5rem;
+  }
+}
+
+// Example usage:
+@include media-breakpoint-up(xl) {
+  .margin-top-search {
+    margin-top: 1.7rem;
+  }
+}
+
+// for small and extra small devices
+@include media-breakpoint-down(sm) {
+  :host ::ng-deep .form-group ngb-typeahead-window.dropdown-menu {
+    max-height: 40vh;
+  }
+  :host ::ng-deep .form-group ngb-typeahead-window.dropdown-menu .dropdown-item {
+    max-width: $typeahead-mobile-max-width;
+  }
+}
+
+// ------------ FIX FOR IE 10+ AND MICROSOFT EDGE BECAUSE 'WIDTH: MAX-CONTENT' IN NOT SUPPORTED ----------------
+@mixin fix-width-and-remove-scrollbar() {
+  :host ::ng-deep .form-group ngb-typeahead-window.dropdown-menu {
+    overflow-x: hidden;
+    .dropdown-item {
+      width: $typeahead-desktop-max-width;
+    }
+  }
+  // for small and extra small devices
+  @include media-breakpoint-down(sm) {
+    :host ::ng-deep .form-group ngb-typeahead-window.dropdown-menu .dropdown-item {
+      max-width: $typeahead-mobile-max-width;
+    }
+  }
+}
+
+// only applies to ie 10 and 11
+@media #{$ie-10-and-11-only} {
+  @include fix-width-and-remove-scrollbar;
+}
+
+// only applies to Microsoft Edge 12
+@supports (#{$microsoft-edge-12-only}) {
+  @include fix-width-and-remove-scrollbar;
+}

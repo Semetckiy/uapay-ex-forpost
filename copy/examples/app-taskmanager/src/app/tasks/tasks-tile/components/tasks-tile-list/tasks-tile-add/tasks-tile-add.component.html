@@ -1,0 +1,41 @@
+<form class="d-flex py-3 pl-0 pt-4" [formGroup]="form">
+  <div class="pr-3" [ngbCollapse]="hideAddForm" [@fadeInOut]="hideAddForm">
+    <input type="text"
+           class="form-control form-control-sm qa-tb-widget-add-task-title"
+           placeholder="Title *"
+           formControlName="title"
+           (keydown.esc)="onEscapePress($event)"
+           #titleInput>
+  </div>
+  <div class="pr-3" [ngbCollapse]="hideAddForm" [@fadeInOut]="hideAddForm">
+    <div class="input-group" [closeInputDatePicker]="d" pFormControlInput>
+      <input class="form-control form-control-sm qa-tb-widget-add-task-due-date"
+             placeholder="yyyy-MM-dd"
+             name="dp"
+             [container]="'body'"
+             [minDate]="today"
+             [displayMonths]="displayMonths"
+             [navigation]="navigation"
+             ngbDatepicker
+             #d="ngbDatepicker"
+             formControlName="dueDate"
+             (keydown.esc)="onEscapePress($event)"
+      >
+      <div class="input-group-append">
+        <button class="input-group-text btn btn-outline-secondary qa-ca-widget-add-task-due-date" (click)="d.toggle()" type="button" title="Toggle calendar">
+          <span class="icon-calendar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div @fadeInOut *ngIf="notificationSettings.showNotification" class="pt-2" [ngClass]="notificationSettings.notificationType">{{notificationSettings.notificationMessage}}</div>
+  <button
+    placement="top"
+    [ngbTooltip]="!hideAddForm ? 'Create a task' : 'Save'"
+    class="ml-auto btn btn-primary btn-sm qa-btn-widget-add-task"
+    [disabled]="isCreating"
+    (click)="onExpandSubmitClick()">
+    <span *ngIf="!isCreating" [ngClass]="{'icon-plus': !expanded, 'icon-check': expanded}"></span>
+    <span *ngIf="isCreating"><app-loading-animation></app-loading-animation></span>
+  </button>
+</form>

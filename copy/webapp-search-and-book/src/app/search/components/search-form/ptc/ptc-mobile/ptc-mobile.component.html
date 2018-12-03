@@ -1,0 +1,23 @@
+<div>
+  <input type="text" class="form-control  input-readonly" (click)="open(content)"
+    [value]="service.ptcDisplayValue$ | async"
+    (keypress)="open(content);$event.stopImmediatePropagation();$event.preventDefault()" readonly>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <label prefixFor="fromPTC" class="modal-title ptclabel">
+      {{ 'snb.search_panel.ptc.label.plural' | translate }}
+    </label>
+  </div>
+  <div class="modal-body" prefixId="fromPTC">
+    <form [formGroup]="formPTC">
+      <ama-ng-airpulse-ptc-form [ptcBase]="ptcBase" [formPTC]="formPTC"></ama-ng-airpulse-ptc-form>
+    </form>
+  </div>
+  <div class="form-row modal-footer d-sm-none ">
+    <button prefixId="ptcSelectButton" type="button" aria-label="Close" (click)="onSubmit();d('Cross click')"
+      class="btn btn-primary btn-block">
+      {{ 'snb.search_panel.select.button.label' | translate }}
+    </button>
+  </div>
+</ng-template>

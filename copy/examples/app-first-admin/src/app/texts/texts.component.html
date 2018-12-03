@@ -1,0 +1,95 @@
+<div class="container-fluid pt-3 design-factory-v2">
+  <div class="row align-items-end">
+    <div class="col flex-grow-0 flex-shrink-0 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setTexts(null, null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [(collectionSize)]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+    <div class="col flex-grow-1 flex-shrink-0 d-flex justify-content-end align-items-end">
+<!--      <p-form-group label="Country:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="countryCode" (ngModelChange)="loadTotal($event);loadPage($event)" id="country" class="w-auto" name="countryCode">
+          <option value="" selected>All</option>
+          <option *ngFor="let country of countries | keyvalue" value="{{ country.value }}">{{ country.key }}</option>
+        </select>
+      </p-form-group>-->
+      <p-form-group label="Language:">
+        <select pFormControlInput [(ngModel)]="lang" (ngModelChange)="loadTotal($event);loadPage($event)" id="lang" class="w-auto" name="lang">
+          <option value="" selected>All</option>
+          <option *ngFor="let lang of langs" value="{{ lang }}">{{ lang }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Name:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="mode" (ngModelChange)="loadTotal($event);loadPage($event)" id="mode" class="w-auto" name="mode">
+          <option value="">All</option>
+          <option *ngFor="let mode of modes" value="{{ mode }}">{{ mode }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Text:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="text" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="text" name="text">
+      </p-form-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th class="w-0 text-left" scope="col"></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('id');loadPage(sort='id')" href="javascript:void(0)"><small *ngIf="sort === 'id'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>ID</a></th>
+            <th class="w-0" scope="col"><a class="text-white" (click)="changeOrder('lang');loadPage(sort='lang')" href="javascript:void(0)"><small *ngIf="sort === 'lang'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Language</a></th>
+            <th class="w-0" scope="col"><a class="text-white" (click)="changeOrder('mode');loadPage(sort='mode')" href="javascript:void(0)"><small *ngIf="sort === 'mode'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Name</a></th>
+            <th class="w-100" scope="col"><a class="text-white" (click)="changeOrder('text');loadPage(sort='text')" href="javascript:void(0)"><small *ngIf="sort === 'text'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Text</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let text of texts" class="col">
+            <td class="text-left"><a (click)="setTexts(text.id, text.countryCode, text.lang, text.mode, text.text)" class="icon-pencil" href="javascript:void(0)" [pOpenModal]="modalEdit"></a></td>
+            <td class="text-center">{{ text.id }}</td>
+            <td class="text-center">{{ text.lang }}</td>
+            <td>{{ text.mode }}</td>
+            <td><div class="text-field" [innerHTML]="text.text"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div class="col-6 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setDictionary(null, null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+  </div>
+</div>
+<ng-template #modalEdit let-c="close" let-d="dismiss">
+  <p-modal (dismiss)="d($event)" title="Edit Text" [dismissible]="true">
+    <form [formGroup]="textsForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div *ngIf="currentID !== null" class="col flex-grow-0 flex-shrink-0">
+          <p-form-group label="ID:">
+            <input pFormControlInput class="w-auto" [size]="currentID.toString().length > 2 ? currentID.toString().length - 2 : 1" type="text" id="modalID" [value]="currentID" [title]="currentID" readonly>
+          </p-form-group>
+        </div>
+        <p-form-group label="Language:" class="col flex-grow-0 flex-shrink-0">
+          <select pFormControlInput id="modalLanguage" class="w-auto" name="modalLanguage" title="Language">
+            <option value="" hidden></option>
+            <option *ngFor="let lang of langs" value="{{ lang }}" [selected]="(currentLang === lang) ? 'selected' : null">{{ lang }}</option>
+          </select>
+        </p-form-group>
+        <p-form-group label="Name:" class="col flex-grow-1 flex-shrink-0">
+          <select pFormControlInput id="modalMode" class="w-auto" name="modalMode" title="Name">
+            <option value="" hidden></option>
+            <option *ngFor="let mode of modes" value="{{ mode }}" [selected]="(currentMode === mode) ? 'selected' : null">{{ mode }}</option>
+          </select>
+        </p-form-group>
+      </div>
+      <p-form-group label="Text:">
+        <div id="modalText" class="form-control h-auto" [innerHTML]="currentText" contenteditable></div>
+      </p-form-group>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-outline-primary" [disabled]="loading" (click)="c('close')">Cancel</button></p-form-group>
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" [disabled]="loading">Apply</button></p-form-group>
+        <p-form-group *ngIf="currentID !== null" class="m-0"><button p-modal-button class="btn btn-sm btn-primary" (click)="c('save')" [disabled]="loading">Copy</button></p-form-group>
+      </div>
+    </form>
+  </p-modal>
+</ng-template>

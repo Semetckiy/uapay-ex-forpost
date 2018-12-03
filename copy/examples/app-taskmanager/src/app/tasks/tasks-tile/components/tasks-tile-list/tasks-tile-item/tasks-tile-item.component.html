@@ -1,0 +1,13 @@
+<div class="row py-1 pl-3">
+  <div class="col-7">
+    <div class="d-flex align-items-center">
+      <div class="pl-1 pr-3 qa-cb-col" (click)="onCheckboxClick(task)">
+        <input #cb class="qa-cb-widget-task-done" type="checkbox" [checked]="task.done">
+      </div>
+      <a href="javascript:void(0);" [ngClass]="{'text-danger': isOverdue}" class="flex-fill text-body qa-ref-widget-task-title" (click)="onTaskClick(task)" style="line-height: 1.2">{{task.title}}</a>
+    </div>
+  </div>
+  <div class="col-5">
+    <span class="qa-la-widget-task-due-date" [ngClass]="{'text-danger': isOverdue}"><span class="qa-ic-widget-task-due-date" [ngClass]="{'icon-warning mr-2': isOverdue}"></span>{{task.dueDate | dateFormat | date:'dd MMM yy'}}</span>
+  </div>
+</div>

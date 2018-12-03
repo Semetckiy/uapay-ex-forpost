@@ -1,0 +1,4 @@
+.grid-24{
+  @extend .row;
+  @include make-grid-columns(24, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints);
+}

@@ -1,0 +1,236 @@
+<lib-ux-page-sub-title [title]="title" [description]="description"></lib-ux-page-sub-title>
+
+<lib-ux-form [entity]="profile" [name]="'profile'" [action]="'update'">
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-select
+      [options]="profile.personTitles.value.options"
+      [label]="profile.title.value.label"
+      [value]="profile.title.value.value"
+      [description]="profile.title.value.description"
+      [placeholder]="profile.title.value.placeholder"
+      [enabled]="profile.title.value.enabled"
+      [required]="profile.title.value.required"
+    ></lib-ux-input-select>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.firstName.value.label"
+      [value]="profile.firstName.value.value"
+      [description]="profile.firstName.value.description"
+      [placeholder]="profile.firstName.value.placeholder"
+      [enabled]="profile.firstName.value.enabled"
+      [required]="profile.firstName.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.lastName.value.label"
+      [value]="profile.lastName.value.value"
+      [description]="profile.lastName.value.description"
+      [placeholder]="profile.lastName.value.placeholder"
+      [enabled]="profile.lastName.value.enabled"
+      [required]="profile.lastName.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.firstLocalName.value.label"
+      [value]="profile.firstLocalName.value.value"
+      [description]="profile.firstLocalName.value.description"
+      [placeholder]="profile.firstLocalName.value.placeholder"
+      [enabled]="profile.firstLocalName.value.enabled"
+      [required]="profile.firstLocalName.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.lastLocalName.value.label"
+      [value]="profile.lastLocalName.value.value"
+      [description]="profile.lastLocalName.value.description"
+      [placeholder]="profile.lastLocalName.value.placeholder"
+      [enabled]="profile.lastLocalName.value.enabled"
+      [required]="profile.lastLocalName.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.jobTitle.value.label"
+      [value]="profile.jobTitle.value.value"
+      [description]="profile.jobTitle.value.description"
+      [placeholder]="profile.jobTitle.value.placeholder"
+      [enabled]="profile.jobTitle.value.enabled"
+      [required]="profile.jobTitle.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-select
+      [options]="profile.personJobs.value.options"
+      [label]="profile.jobPosition.value.label"
+      [value]="profile.jobPosition.value.value"
+      [description]="profile.jobPosition.value.description"
+      [placeholder]="profile.jobPosition.value.placeholder"
+      [enabled]="profile.jobPosition.value.enabled"
+      [required]="profile.jobPosition.value.required"
+    ></lib-ux-input-select>
+
+    <lib-ux-input-select
+      [options]="profile.personContactLang.value.options"
+      [label]="profile.contactLang.value.label"
+      [value]="profile.contactLang.value.value"
+      [description]="profile.contactLang.value.description"
+      [placeholder]="profile.contactLang.value.placeholder"
+      [enabled]="profile.contactLang.value.enabled"
+      [required]="profile.contactLang.value.required"
+    ></lib-ux-input-select>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-select
+      [options]="profile.personBusiness.value.options"
+      [label]="profile.primaryBusiness.value.label"
+      [value]="profile.primaryBusiness.value.value"
+      [description]="profile.primaryBusiness.value.description"
+      [placeholder]="profile.primaryBusiness.value.placeholder"
+      [enabled]="profile.primaryBusiness.value.enabled"
+      [required]="profile.primaryBusiness.value.required"
+    ></lib-ux-input-select>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-label
+      [label]="profile.isAdmin.value.label"
+      [value]="profile.isAdmin.value.value"
+    ></lib-ux-input-label>
+
+  </lib-ux-form-row>
+
+  <lib-ux-line-separator></lib-ux-line-separator>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.email.value.label"
+      [value]="profile.email.value.value"
+      [description]="profile.email.value.description"
+      [placeholder]="profile.email.value.placeholder"
+      [enabled]="profile.email.value.enabled"
+      [required]="profile.email.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.workPhone.value.label"
+      [value]="profile.workPhone.value.value"
+      [description]="profile.workPhone.value.description"
+      [placeholder]="profile.workPhone.value.placeholder"
+      [enabled]="profile.workPhone.value.enabled"
+      [required]="profile.workPhone.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.mobilePhone.value.label"
+      [value]="profile.mobilePhone.value.value"
+      [description]="profile.mobilePhone.value.description"
+      [placeholder]="profile.mobilePhone.value.placeholder"
+      [enabled]="profile.mobilePhone.value.enabled"
+      [required]="profile.mobilePhone.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-line-separator></lib-ux-line-separator>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.amadeusOffice.value.label"
+      [value]="profile.amadeusOffice.value.value"
+      [description]="profile.amadeusOffice.value.description"
+      [placeholder]="profile.amadeusOffice.value.placeholder"
+      [enabled]="profile.amadeusOffice.value.enabled"
+      [required]="profile.amadeusOffice.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.address.value.label"
+      [value]="profile.address.value.value"
+      [description]="profile.address.value.description"
+      [placeholder]="profile.address.value.placeholder"
+      [enabled]="profile.address.value.enabled"
+      [required]="profile.address.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.city.value.label"
+      [value]="profile.city.value.value"
+      [description]="profile.city.value.description"
+      [placeholder]="profile.city.value.placeholder"
+      [enabled]="profile.city.value.enabled"
+      [required]="profile.city.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.zip.value.label"
+      [value]="profile.zip.value.value"
+      [description]="profile.zip.value.description"
+      [placeholder]="profile.zip.value.placeholder"
+      [enabled]="profile.zip.value.enabled"
+      [required]="profile.zip.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+
+    <lib-ux-input-text
+      [label]="profile.state.value.label"
+      [value]="profile.state.value.value"
+      [description]="profile.state.value.description"
+      [placeholder]="profile.state.value.placeholder"
+      [enabled]="profile.state.value.enabled"
+      [required]="profile.state.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.country.value.label"
+      [value]="profile.country.value.value"
+      [description]="profile.country.value.description"
+      [placeholder]="profile.country.value.placeholder"
+      [enabled]="profile.country.value.enabled"
+      [required]="profile.country.value.required"
+    ></lib-ux-input-text>
+
+    <lib-ux-input-text
+      [label]="profile.timeZone.value.label"
+      [value]="profile.timeZone.value.value"
+      [description]="profile.timeZone.value.description"
+      [placeholder]="profile.timeZone.value.placeholder"
+      [enabled]="profile.timeZone.value.enabled"
+      [required]="profile.timeZone.value.required"
+    ></lib-ux-input-text>
+
+  </lib-ux-form-row>
+
+  <lib-ux-form-row>
+    <lib-ux-input-button
+      [label]="'Save changes'"
+      [type]="'submit'"
+    ></lib-ux-input-button>
+  </lib-ux-form-row>
+
+</lib-ux-form>

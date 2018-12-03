@@ -1,0 +1,30 @@
+<ux-demo-logo></ux-demo-logo>
+<ux-demo-menu menuName="mainMenu"></ux-demo-menu>
+
+<ux-demo-action-form entity="User" action="update" name="form">
+  <ux-demo-attr-simple-text entityMapper="user" attribute="name"></ux-demo-attr-simple-text>
+  <ux-demo-simple-text-input entityMapper="user" attribute="name" formName="form" title="First name"></ux-demo-simple-text-input>
+  <ux-demo-simple-text-input entityMapper="user" attribute="email" formName="form" title="E-mail"></ux-demo-simple-text-input>
+</ux-demo-action-form>
+
+<h2>Name list</h2>
+<ux-demo-list entityMapper="userList">
+  <ng-template #row let-item let-key="key">
+    <ux-demo-attr-simple-text [entityMapper]="'userList[' + key  + ']'" attribute="name"></ux-demo-attr-simple-text>
+  </ng-template>
+</ux-demo-list>
+
+<h2>Email list</h2>
+<ux-demo-list entityMapper="userList">
+  <ng-template #row let-item let-key="key">
+    <ux-demo-attr-simple-text [entityMapper]="'userList[' + key  + ']'" attribute="email"></ux-demo-attr-simple-text>
+  </ng-template>
+</ux-demo-list>
+
+<h2>Name and email list</h2>
+<ux-demo-list entityMapper="userList">
+  <ng-template #row let-item let-key="key">
+    <ux-demo-attr-simple-text [entityMapper]="'userList[' + key  + ']'" attribute="name" style="display: inline-block;margin-right: 20px;"></ux-demo-attr-simple-text>
+    <ux-demo-attr-simple-text [entityMapper]="'userList[' + key  + ']'" attribute="email" style="display: inline-block;"></ux-demo-attr-simple-text>
+  </ng-template>
+</ux-demo-list>

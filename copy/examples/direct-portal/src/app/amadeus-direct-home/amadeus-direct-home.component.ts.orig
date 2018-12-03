@@ -1,0 +1,69 @@
+import { Component, OnInit } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser'
+import { Store } from '@ngrx/store';
+import {Init} from "@uxdf/search-and-book/src/app/search/actions/results.actions";
+import {Router} from "@angular/router";
+import { IframeService } from '../services/iframe.service';
+<<<<<<< HEAD
+
+=======
+import { TILES } from '../services/tilesConfig';
+>>>>>>> 2c7be786a519c810ccc6ee057e6af4657c3937f9
+
+
+@Component({
+  selector: 'app-amadeus-direct-home',
+  templateUrl: './amadeus-direct-home.component.html',
+  styleUrls: ['./amadeus-direct-home.component.scss']
+})
+export class AmadeusDirectHomeComponent implements OnInit {
+
+  loginUserName:string="Welcome Gustav";
+<<<<<<< HEAD
+  
+=======
+  counter=1;
+  tilesArray=TILES.tiles;
+>>>>>>> 2c7be786a519c810ccc6ee057e6af4657c3937f9
+
+  constructor(
+    private santitizer: DomSanitizer,
+    private store: Store<any>,
+    private router: Router,
+    private iframeService:IframeService
+  ) {
+  }
+
+  ngOnInit() {
+    this.iframeService.listenToMessageEventAndOpen();
+}
+<<<<<<< HEAD
+
+
+=======
+
+increment(){
+  this.counter=this.counter+1;
+  if(this.counter===3){
+    this.counter=1;
+  }
+}
+
+>>>>>>> 2c7be786a519c810ccc6ee057e6af4657c3937f9
+ngOnDestroy(){
+  this.iframeService.removeMessageEventListener();
+}
+
+  getSanitizedUrl(){
+    return this.santitizer.bypassSecurityTrustResourceUrl('https://www.amadeus-direct.com/api/news');
+  }
+
+  search(data) {
+    this.router.navigate(['search']).then(() => {
+      this.store.dispatch(new Init({searchParams: data}));
+    });
+  }
+
+  
+
+}

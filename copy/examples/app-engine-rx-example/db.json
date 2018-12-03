@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "name": "Dimitri",
+    "email": "Vergos 1"
+  },
+  "user-list": [{
+    "id": 1,
+    "name": "Dimitri",
+    "email": "1@amadeus.com"
+  }, {
+    "id": 2,
+    "name": "Ivan",
+    "email": "2@amadeus.com"
+  }, {
+    "id": 3,
+    "name": "Zoya",
+    "email": "3@amadeus.com"
+  }]
+}

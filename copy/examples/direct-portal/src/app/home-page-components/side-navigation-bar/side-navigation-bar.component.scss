@@ -1,0 +1,38 @@
+.font-size-regular{
+	font-size: 1.2rem;
+}
+
+.navbar {
+  .nav-link {
+    text-align: center;
+    img {
+      width: 3rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+	.font-size-regular{
+		font-size: 1rem;
+	}
+
+  }
+
+  /*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+	.font-size-regular{
+		font-size: 0.8rem;
+	}
+
+  }

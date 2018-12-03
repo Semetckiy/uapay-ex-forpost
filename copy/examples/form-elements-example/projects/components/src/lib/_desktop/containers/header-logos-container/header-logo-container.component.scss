@@ -1,0 +1,234 @@
+.header-top {
+  height: 84px;
+  border-bottom: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+.header-top-panel {
+  padding-left: 3.125rem;
+  padding-right: 3.125rem;
+}
+
+.navbar-nav .header-logo-link {
+  color: #005EB8;
+  font-family: Amadeus;
+  font-size: 36px;
+  line-height: 54px;
+  padding-left: 0rem;
+}
+
+.navbar-nav .header-logo-text {
+  color: #005EB8;
+  font-family: Amadeus;
+  font-size: 36px;
+  line-height: 54px;
+  padding-left: 0rem;
+  font-weight: 100;
+}
+
+.nav-item .header-top-item {
+  color: #666666;
+  font-family: 'Source Sans Pro';
+  font-size: 15.75px;
+  line-height: 28px;
+  padding-right: 0rem;
+  padding-left: 3.125rem;
+}
+
+.header-bottom {
+  height: 74px;
+  border-bottom: 1px solid #DDDDDD;
+  background-color: #FFFFFF;
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+.header-bottom-panel {
+  padding-left: 3.125rem;
+  padding-right: 3.125rem;
+}
+
+.nav-item .header-bottom-item {
+  color: #666666;
+  font-family: 'Source Sans Pro';
+  font-size: 18px;
+  line-height: 31px;
+  padding-right: 3.125rem;
+  padding-left: 0rem;
+}
+
+.icons-panel {
+  padding-right: 0rem;
+  padding-left: 3.125rem;
+}
+
+.icons-item {
+  background-color: #fff;
+  border: none;
+  color: #656565;
+  padding: 12px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-badge {
+  background-color: #CE0058;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.icon-item {
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  line-height: 31px;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: "Source Sans Pro";
+  font-size: 18px;
+  line-height: 31px;
+  background-color: #005EB8;
+}
+
+.mobile-icons-panel {
+  padding-right: 0rem;
+  padding-left: 0.5rem;
+}
+
+.mobile-icons-item {
+  background-color: #fff;
+  border: none;
+  color: #656565;
+  padding: 12px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mobile-icon-item {
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+}
+
+//@media screen and (max-width: 576px) {
+//  .desctop-header {
+//    display: none;
+//  }
+//}
+//
+//@media screen and (min-width: 576px) {
+//  .mobile-header {
+//    display: none;
+//  }
+//}
+
+
+@media screen and (max-width: 576px) {
+  .desctop-header {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .desctop-header {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .mobile-header {
+    display: none;
+  }
+
+  .header-top-panel {
+    padding-left: 1.5625rem;
+    padding-right: 1.5625rem;
+  }
+
+  .header-bottom-panel {
+    padding-left: 1.5625rem;
+    padding-right: 1.5625rem;
+  }
+
+  .nav-item .header-bottom-item {
+    color: #666666;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    line-height: 28px;
+    padding-right: 1.5625rem;
+    padding-left: 0rem;
+  }
+
+  .icons-panel {
+    padding-right: 0rem;
+    padding-left: 1.5625rem;
+  }
+
+  .navbar-nav .header-logo-link {
+    color: #005EB8;
+    font-family: Amadeus;
+    font-size: 32px;
+    line-height: 48px;
+    padding-left: 0rem;
+  }
+
+  .navbar-nav .header-logo-text {
+    color: #005EB8;
+    font-family: Amadeus;
+    font-size: 32px;
+    line-height: 48px;
+    padding-left: 0rem;
+    font-weight: 100;
+  }
+
+  .nav-item .header-top-item {
+    color: #666666;
+    font-family: 'Source Sans Pro';
+    font-size: 15.75px;
+    line-height: 28px;
+    padding-right: 0rem;
+    padding-left: 1.5625rem;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+  .mobile-header {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-header {
+    display: none;
+  }
+}
+
+//.mr-auto,
+//.mx-auto {
+//  margin-right: auto !important;
+//}
+:host{ flex: 1; }

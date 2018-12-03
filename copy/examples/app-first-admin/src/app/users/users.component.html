@@ -1,0 +1,222 @@
+<div class="container-fluid pt-3 design-factory-v2">
+  <div class="row align-items-end">
+    <div class="col flex-grow-0 flex-shrink-0 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setUser(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [(collectionSize)]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+    <div class="col flex-grow-1 flex-shrink-0 d-flex justify-content-end align-items-end">
+      <p-form-group label="Number:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="number" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="number" name="number">
+      </p-form-group>
+      <p-form-group label="Title:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="title" (ngModelChange)="loadTotal($event);loadPage($event)" id="title" class="w-auto" name="title">
+          <option value="">All</option>
+          <option value="title%3DMr%5E">Mr</option>
+          <option value="title%3DMrs%5E">Mrs</option>
+          <option value="title%3DMs%5E">Ms</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="First name:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="name" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="name" name="name">
+      </p-form-group>
+      <p-form-group label="Last name:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="secondName" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="secondName" name="secondName">
+      </p-form-group>
+      <p-form-group label="Country:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="countryCode" (ngModelChange)="loadTotal($event);loadPage($event)" id="country" name="countryCode">
+          <option value="" selected>All</option>
+          <option *ngFor="let country of countries | keyvalue" value="{{ country.value }}">{{ country.key }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Birthday:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="birthdayDay" (ngModelChange)="loadTotal($event);loadPage($event)" id="birthdayDay" class="w-auto" name="birthdayDay">
+          <option value="">All</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+        </select>
+      </p-form-group>
+      <p-form-group class="ml-1">
+        <select pFormControlInput [(ngModel)]="birthdayMonth" (ngModelChange)="loadTotal($event);loadPage($event)" id="birthdayMonth" class="w-auto" name="birthdayMonth">
+          <option value="">All</option>
+          <option value="1">Jan</option>
+          <option value="2">Feb</option>
+          <option value="3">Mar</option>
+          <option value="4">Apr</option>
+          <option value="5">May</option>
+          <option value="6">Jun</option>
+          <option value="7">Jul</option>
+          <option value="8">Aug</option>
+          <option value="9">Sep</option>
+          <option value="10">Oct</option>
+          <option value="11">Nov</option>
+          <option value="12">Dec</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Mobile:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="phoneMob" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="phoneMob" name="phoneMob">
+      </p-form-group>
+      <p-form-group label="Agency:" class="ml-4">
+        <input pFormControlInput [(ngModel)]="agency" (ngModelChange)="loadTotal($event);loadPage($event)" type="text" id="agency" name="agency">
+      </p-form-group>
+      <p-form-group label="Active:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="active" (ngModelChange)="loadTotal($event);loadPage($event)" id="status" class="w-auto" name="active">
+          <option value="">All</option>
+          <option value="1">Active</option>
+          <option value="0">Inactive</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Taxation:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="taxOk" (ngModelChange)="loadTotal($event);loadPage($event)" id="taxOk" class="w-auto" name="taxOk">
+          <option value="">All</option>
+          <option value="1">Active</option>
+          <option value="0">Inactive</option>
+        </select>
+      </p-form-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr class="text-nowrap">
+            <th class="w-0 text-left" scope="col"></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('id');loadPage(sort='id')" href="javascript:void(0)"><small *ngIf="sort === 'id'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>ID</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('number');loadPage(sort='number')" href="javascript:void(0)"><small *ngIf="sort === 'number'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Number</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('title');loadPage(sort='title')" href="javascript:void(0)"><small *ngIf="sort === 'title'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Title</a></th>
+            <th class="w-0" scope="col"><a class="text-white" (click)="changeOrder('secondName,name');loadPage(sort='secondName,name')" href="javascript:void(0)"><small *ngIf="sort === 'secondName,name'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Name</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('countryCode');loadPage(sort='countryCode')" href="javascript:void(0)"><small *ngIf="sort === 'countryCode'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Country</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('birthdayMonth,birthdayDay');loadPage(sort='birthdayMonth,birthdayDay')" href="javascript:void(0)"><small *ngIf="sort === 'birthdayMonth,birthdayDay'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Birthday</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('phoneMob');loadPage(sort='phoneMob')" href="javascript:void(0)"><small *ngIf="sort === 'phoneMob'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Mobile phone</a></th>
+            <th class="w-100" scope="col"><a class="text-white" (click)="changeOrder('agency');loadPage(sort='agency')" href="javascript:void(0)"><small *ngIf="sort === 'agency'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Agency</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('active');loadPage(sort='active')" href="javascript:void(0)"><small *ngIf="sort === 'active'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Active</a></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('taxOk');loadPage(sort='taxOk')" href="javascript:void(0)"><small *ngIf="sort === 'taxOk'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Taxation</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" class="col">
+            <td class="text-left"><a (click)="setUser(user.id, user.number, user.data, user.name, user.secondName, user.countryCode, user.birthdayDay, user.birthdayMonth, user.tempo, user.agency, user.address, user.email, user.active)" class="icon-pencil" href="javascript:void(0)" [pOpenModal]="modalEdit"></a></td>
+            <td class="text-center">{{ user.id }}</td>
+            <td class="text-center">{{ user.number }}</td>
+            <td class="text-center">{{ user.title }}</td>
+            <td class="text-nowrap">{{ user.name }} {{ user.secondName }}</td>
+            <td class="text-center">{{ user.countryCode }}</td>
+            <td class="text-nowrap">{{ (user.birthdayMonth && user.birthdayDay) ? ((user.birthdayMonth + '-' + user.birthdayDay) | date:'d MMM') : '' }}</td>
+            <td class="text-center">{{ user.phoneMob }}</td>
+            <td>{{ user.agency }}</td>
+            <td class="text-center"><span [ngClass]="{ 'icon-check text-success': (user.active == 1), 'icon-disabled text-danger': (user.active == 0) }"></span></td>
+            <td class="text-center"><span [ngClass]="{ 'icon-check text-success': (user.taxOk == 1), 'icon-disabled text-danger': (user.taxOk == 0) }"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div class="col-6 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setUser(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+  </div>
+</div>
+<ng-template #modalEdit let-c="close" let-d="dismiss">
+  <p-modal (dismiss)="d($event)" title="EDIT USER" [dismissible]="true">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <p-form-group *ngIf="currentID !== null" label="ID:">
+        <input pFormControlInput type="text" id="modalID" pattern=".*" [value]="currentID" readonly>
+      </p-form-group>
+      <p-form-group *ngIf="currentID !== null" label="Number:">
+        <input pFormControlInput type="text" id="modalNumber" pattern=".*" [value]="currentNumber" readonly>
+      </p-form-group>
+      <p-form-group label="Title:">
+        <select pFormControlInput id="modalTitle" class="w-auto">
+          <option value="" hidden disabled selected></option>
+          <option value="Mr" [selected]="(currentTitle == 'Mr') ? 'selected' : null">Mr</option>
+          <option value="Mrs" [selected]="(currentTitle == 'Mrs') ? 'selected' : null">Mrs</option>
+          <option value="Ms" [selected]="(currentTitle == 'Ms') ? 'selected' : null">Ms</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="First name:">
+        <input pFormControlInput type="text" id="modalName" formControlName="modalName" pattern=".*" [ngClass]="{ 'is-valid': !submitted || !f.modalName.errors, 'is-invalid': submitted && f.modalName.errors }" [value]="currentName">
+        <div class="invalid-feedback" *ngIf="submitted && f.modalName.errors"><div *ngIf="f.modalName.errors.required">Please provide a valid name.</div></div>
+      </p-form-group>
+      <p-form-group label="Last name:">
+        <input pFormControlInput type="text" id="modalSecondName" pattern=".*" [value]="currentSecondName">
+      </p-form-group>
+      <p-form-group label="Country:">
+        <select pFormControlInput id="modalCountry">
+          <option value="" hidden disabled selected></option>
+          <option *ngFor="let country of countries | keyvalue" value="{{ country.value }}" [selected]="(currentCountry === country.value) ? 'selected' : null">{{ country.key }}</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Birthday:">
+        <input pFormControlInput type="text" id="modalBirthday" [value]="(currentBirthdayDay && currentBirthdayMonth) ? ((currentBirthdayMonth + '-' + currentBirthdayDay) | date:'d MMM') : ''">
+      </p-form-group>
+      <p-form-group label="Phone:">
+        <input pFormControlInput type="tel" id="modalPhone" [value]="currentPhone">
+      </p-form-group>
+      <p-form-group label="Mobile:">
+        <input pFormControlInput type="tel" id="modalMobilePhone" [value]="currentMobilePhone">
+      </p-form-group>
+      <p-form-group label="Office ID:">
+        <input pFormControlInput type="text" id="modalOfficeID" [value]="currentOfficeID">
+      </p-form-group>
+      <p-form-group label="Agency:">
+        <input pFormControlInput type="text" id="modalAgency" [value]="currentAgency">
+      </p-form-group>
+      <p-form-group label="Address:">
+        <input pFormControlInput type="text" id="modalAddress" [value]="currentAddress">
+      </p-form-group>
+      <p-form-group label="Email:">
+        <input pFormControlInput type="email" id="modalEmail" [value]="currentEmail">
+      </p-form-group>
+      <p-form-group label="Delivery address:">
+        <input pFormControlInput type="text" id="modalDeliveryAddress" [value]="currentDeliveryAddress">
+      </p-form-group>
+      <p-form-group label="Active">
+        <input pFormControlInput type="checkbox" id="modalActive" [checked]="(currentActive == '1') ? 'checked' : null">
+      </p-form-group>
+      <p-form-group label="Taxation">
+        <input pFormControlInput type="checkbox" id="modalTaxation" [checked]="(currentTaxOK == '1') ? 'checked' : null">
+      </p-form-group>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" [disabled]="loading">Apply</button></p-form-group>
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-outline-primary" [disabled]="loading" (click)="c('close')">Cancel</button></p-form-group>
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" (click)="c('save')" [disabled]="loading">Copy</button></p-form-group>
+      </div>
+    </form>
+  </p-modal>
+</ng-template>
+<ng-template #modalImage let-c="close" let-d="dismiss">
+  <p-modal (dismiss)="d($event)" title="Image" [dismissible]="true">
+    <img class="w-100"  src="{{ currentImage }}" onError="this.src='assets/svg/user-default.svg'" alt="">
+  </p-modal>
+</ng-template>

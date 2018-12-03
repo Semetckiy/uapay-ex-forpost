@@ -1,0 +1,169 @@
+/* You can add global styles to this file, and also import other style files */
+$basic-mobile-width: 320px;
+$red: #c60000 !default;
+$orange: #f7a827 !default;
+$danger: $red !default;
+$warning: $orange !default;
+$gray-900: #191919 !default;
+$sky: #e7f2fa !default;
+$mark-bg: $sky !default;
+$line-height-base: 1.75 !default;
+$blockquote-font-size: 1.5rem !default;
+$btn-font-weight: 600 !default;
+$input-btn-padding-y: .625rem !default;
+$input-btn-padding-x: 1.25rem !default;
+$input-btn-padding-y-sm: .33334rem !default;
+$input-btn-padding-x-sm: .75rem !default;
+$input-btn-padding-y-lg: .8125rem !default;
+$input-btn-padding-x-lg: 1.5rem !default;
+$input-btn-line-height: 1.5 !default;
+$btn-border-radius-lg: .25rem !default;
+$alert-margin-bottom: 0 !default;
+$df-navbar-boxshadow: none;
+@import "~@uxdf/global-styles/style.scss";
+@import "~@uxdf/global-styles/overrides/_svgencode.scss";
+app-root, p-page-layout {
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  min-width: $basic-mobile-width;
+  min-height: 100vh;
+  flex-direction: column;
+  align-content: stretch;
+}
+p-page-layout > * {
+  flex-shrink: 0;
+}
+main {
+  flex-grow: 1;
+}
+.modal-dialog {
+  @include media-breakpoint-up(sm) {
+    max-width: $modal-sm;
+  }
+  @include media-breakpoint-up(md) {
+    max-width: $modal-md;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: $modal-lg;
+  }
+}
+.form-group:not(.row, .custom-control-inline) {
+  display: block;
+}
+label, select {
+  cursor: pointer;
+}
+.image-loader {
+  overflow: hidden;
+  position: relative;
+  max-width: 12rem;
+  max-height: 12rem;
+  padding: .25rem;
+  img {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: .125rem;
+    transition: all .2s ease-in-out;
+  }
+  input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    right: -50%;
+    top: -50%;
+    width: 400rem;
+    height: 40rem;
+    font-size: 40rem;
+    &:focus ~ img {
+      box-shadow: 0 0 0 .2rem rgba(0, 94, 184, .25);
+    }
+  }
+}
+.form-control {
+  height: 2.25rem;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  border-width: .0625rem;
+  transition: $transition-base;
+  @at-root select#{&}:not([size]):not([multiple]) {
+    $arrows-width: .6875rem;
+    padding-right: $arrows-width + 2 * $input-padding-x;
+    appearance: none;
+    $select-arrows: '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none slice" viewBox="0 0 10 14" width="10" height="14"><path stroke="#{rgba($black, .2)}" stroke-linecap="round" fill="none" d="M1 5l4 -4M5 1l4 4M1 9l4 4M5 13l4-4"/></svg>';
+    background: $white url(svg-encode($select-arrows)) no-repeat right .75rem center/$arrows-width .9375rem;
+    &:focus {
+      $select-arrows: '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none slice" viewBox="0 0 10 14" width="10" height="14"><path stroke="#{$primary}" stroke-linecap="round" fill="none" d="M1 5l4 -4M5 1l4 4M1 9l4 4M5 13l4-4"/></svg>';
+      background-image: url(svg-encode($select-arrows));
+    }
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  &-lg {
+    padding-top: .6875rem;
+    padding-bottom: .6875rem;
+    font-size: 1.125rem;
+    border-radius: $border-radius;
+    @at-root select#{&}:not([size]):not([multiple]) {
+      height: 3.1875rem;
+      background-position: right 1rem center;
+    }
+  }
+}
+.form-check {
+  padding-left: 1.5rem;
+  & > input[type='checkbox'] ~ &-label {
+    margin: 0;
+    &:before {
+      top: .325rem;
+      transition: $transition-base;
+    }
+  }
+}
+.btn {
+  &-success, &-warning, &-danger, &-info {
+    &:not(:disabled):not(.disabled) {
+      &, &:hover, &:active {
+        color: $white;
+      }
+    }
+  }
+}
+mark {
+  color: inherit;
+}
+blockquote {
+  font-size: $blockquote-font-size;
+  small {
+    font-size: 1rem;
+    font-style: normal;
+    color: $gray-600;
+  }
+}
+.table-sort-icon {
+  margin: .5675rem 0 0 -0.8125rem;
+}
+.w-0 {
+  width: 0 !important;
+}
+.icon-disabled:before {
+  content: "\e906";
+}
+.text-field {
+  overflow: hidden;
+  max-height: 1.75rem;
+}
+.modal .modal-dialog .modal-content .modal-body p {
+  width: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+input.w-auto {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}

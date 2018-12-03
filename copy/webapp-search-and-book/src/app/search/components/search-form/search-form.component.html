@@ -1,0 +1,183 @@
+<form [formGroup]="formGroup" connectSearchForm (submit)="submit()" style="margin-top: 25px;">
+  <div class="row">
+    <div class="col-12">
+      <p-form-group label="One way" class="d-inline-block mr-3 mr-sm-5">
+        <input value="oneWayTrip"
+               id="oneWayTrip"
+               pFormControlInput
+               formControlName="searchType"
+               type="radio">
+      </p-form-group>
+      <p-form-group label="Round trip" class="d-inline-block mr-3 mr-sm-5">
+        <input value="roundTrip"
+               pFormControlInput
+               id="roundTrip"
+               formControlName="searchType"
+               type="radio">
+      </p-form-group>
+      <p-form-group class="d-inline-block mr-3 mr-sm-5" label="Non stop flights">
+        <input class="custom-control-input"
+               id="nonStop"
+               pFormControlInput
+               formControlName="nonStop"
+               type="checkbox">
+      </p-form-group>
+    </div>
+  </div>
+
+  <div class="row">
+    <p-form-group label="{{ 'snb.search_panel.from.label' | translate }}" class="col-12 col-md-3">
+      <input pFormControlInput
+             [ngClass]="displayFieldCss('outboundFrom')"
+             id="outboundFrom"
+             formControlName="outboundFrom"
+             type="text"
+             placeholder="{{ 'snb.search_panel.from.placeholder' | translate }}"
+             [ngbTypeahead]="airportAutocompletionService.searchAirports"
+             [inputFormatter]="airportAutocompletionService.airportSuggestionFormatter"
+             [resultTemplate]="airportSuggestionTemplate" />
+      <ng-container *ngIf="isFieldValid('outboundFrom'); ">
+        <small *ngIf="formGroup.get('outboundFrom').hasError('required')" class="form-text" style="color: red;">{{ 'snb.search_panel.fromError.required' | translate }}</small>
+        <small *ngIf="formGroup.get('outboundFrom').hasError('notAnObject')" class="form-text" style="color: red;">{{ 'snb.search_panel.fromError.notAnObject' | translate }}</small>
+      </ng-container>
+    </p-form-group>
+    <p-form-group label="{{ 'snb.search_panel.to.label' | translate }}" class="col-12 col-md-3">
+      <input pFormControlInput
+             [ngClass]="displayFieldCss('inboundTo')"
+             id="inboundTo"
+             formControlName="inboundTo"
+             type="text"
+             placeholder="{{ 'snb.search_panel.to.placeholder' | translate }}"
+             [ngbTypeahead]="airportAutocompletionService.searchAirports"
+             [inputFormatter]="airportAutocompletionService.airportSuggestionFormatter"
+             [resultTemplate]="airportSuggestionTemplate" />
+      <ng-container *ngIf="isFieldValid('inboundTo');">
+        <small *ngIf="formGroup.get('inboundTo').hasError('required')" class="form-text" style="color: red;">{{ 'snb.search_panel.toError.required' | translate }}</small>
+        <small *ngIf="formGroup.get('inboundTo').hasError('notAnObject')" class="form-text" style="color: red;">{{ 'snb.search_panel.toError.notAnObject' | translate }}</small>
+      </ng-container>
+    </p-form-group>
+
+    <ng-template #airportSuggestionTemplate let-r="result" let-t="term">
+      <div *ngIf="r.type === suggestionType.CityWithMultipleAirports; then cityBlock else airportBlock"></div>
+      <ng-template #cityBlock>
+        <span class="icon-plane"></span>
+        <span style="margin-left: 0.5rem;" [innerHTML]="'(' + (r.iata | highlightMatch:t) + ') '"></span>
+        <span [innerHTML]="(r.cityName | highlightMatch:t) + ', '"></span>
+        <span>{{ 'snb.search_panel.airportSuggestion.allAirports' | translate }} - </span>
+        <span>{{ r.countryName }}</span>
+        <span *ngIf="r.stateCode">, {{ r.stateCode }}</span>
+      </ng-template>
+      <ng-template #airportBlock>
+        <span *ngIf="r.type === suggestionType.AirportsInCityWithMultipleAirports; else noIndentBlock"
+          class="icon-level-right"></span>
+        <ng-template #noIndentBlock>
+          <span class="icon-plane"></span>
+        </ng-template>
+        <span style="margin-left: 0.5rem;" [innerHTML]="'(' + (r.iata | highlightMatch:t) + ') '"></span>
+        <span [innerHTML]="(r.cityName | highlightMatch:t) + ', '"></span>
+        <span [innerHTML]="(r.airportName | highlightMatch:t) + ' - '"></span>
+        <span>{{ r.countryName + ' '}}</span>
+        <span *ngIf="r.stateCode">, {{ r.stateCode }}</span>
+      </ng-template>
+    </ng-template>
+
+    <p-form-group label="{{ 'snb.search_panel.departureDate.label' | translate }}" class="col-12 col-md-3">
+      <div class="input-group">
+        <input pFormControlInput
+               formControlName="date"
+               name="outboundDate"
+               id="outboundDate"
+               class="form-control"
+               placeholder="yyyy-mm-dd"
+               autocomplete="off"
+               ngbDatepicker #dp="ngbDatepicker"
+               [displayMonths]="2"
+               [autoClose]="true"
+               outsideDays="hidden"
+               [minDate]="minDate"
+               [dayTemplate]="date"
+        >
+        <div class="input-group-append">
+          <button class="input-group-text btn btn-outline-secondary" (click)="dp.toggle()" type="button" title="Toggle calendar">
+            <span class="icon-calendar"></span>
+          </button>
+        </div>
+      </div>
+    </p-form-group>
+    <ng-template #date let-date let-focused="focused">
+      <span class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)"
+            (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null">
+        {{ date.day }}
+      </span>
+    </ng-template>
+
+    <p-form-group label="{{ 'snb.search_panel.returnDate.label' | translate }}" class="col-12 col-md-3">
+      <div class="input-group">
+        <input pFormControlInput
+               formControlName="endDate"
+               type="text"
+               id="inboundDate"
+               placeholder="yyyy-mm-dd"
+               name="inboundDate"
+               autocomplete="off"
+               ngbDatepicker #dp1="ngbDatepicker"
+               [displayMonths]="2"
+               [autoClose]="true"
+               outsideDays="hidden"
+               [minDate]="minReturnDate"
+               [dayTemplate]="endDate"
+        >
+        <div class="input-group-append">
+          <button class="input-group-text btn btn-outline-secondary" (click)="dp1.toggle()" type="button"
+                  title="Toggle calendar">
+            <span class="icon-calendar"></span>
+          </button>
+        </div>
+      </div>
+    </p-form-group>
+    <ng-template #endDate let-endDate let-focused="focused">
+      <span class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(endDate)"
+            [class.faded]="isHovered(endDate) || isInside(endDate)"
+            (mouseenter)="hoveredDate = endDate"
+            (mouseleave)="hoveredDate = null">
+        {{ endDate.day }}
+      </span>
+    </ng-template>
+
+    <p-form-group label="Passenger" class="col-12 col-md-3">
+      <app-ptc-input formControlName="ptcs"></app-ptc-input>
+    </p-form-group>
+    <!--<p-form-group label="Airline" class="col-12 col-md-3">
+      <input pFormControlInput type="text" id="airline" formControlName="airline">
+    </p-form-group>
+
+    <p-form-group label="Cabin" class="col-12 col-md-3">
+      <select class="form-control" formControlName="cabin" id="cabin">
+        <option *ngFor="let cabin of cabins" [ngValue]="cabin.value">
+          {{ cabin.label }}
+        </option>
+      </select>
+    </p-form-group>-->
+
+
+    <div class="col-9 d-none d-sm-block d-sm-flex align-items-end justify-content-end">
+      <button type="submit" class="btn btn-primary btn-sm mb-3">
+        <span class="icon-search mr-2" aria-hidden></span>
+        {{ 'snb.search_panel.search.button.label' | translate }}
+      </button>
+    </div>
+
+    <div class="col-12 d-block d-sm-none">
+      <button type="submit" class="btn btn-primary btn-sm">
+        <span class="icon-search mr-2" aria-hidden></span>
+        {{ 'snb.search_panel.search.button.label' | translate }}
+      </button>
+    </div>
+  </div>
+</form>

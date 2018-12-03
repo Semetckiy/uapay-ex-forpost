@@ -1,0 +1,9 @@
+.page-header-panel {
+  padding-left: -10px;
+}
+
+.page-header-label {
+  border-left: solid 5px #005EB8;
+  padding-left: 5px;
+  margin-left: -10px;
+}

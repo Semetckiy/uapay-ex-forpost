@@ -1,0 +1,58 @@
+<div class="card bg-light">
+  <div class="grid-24">
+    <div class="col-1 py-2">&nbsp;</div>
+    <div class="col-23 py-2">
+      <div class="grid-24 py-2">
+        <div class="col col-9 qa-la-task-list-title">
+          <app-tasks-sort-col (change)="onSortChange($event)" columnId="title" [settings]="sorting">
+            Title
+          </app-tasks-sort-col>
+        </div>
+        <div class="col col-4 qa-la-task-list-due-date">
+          <app-tasks-sort-col (change)="onSortChange($event)" columnId="dueDate" [settings]="sorting">
+            Due Date
+          </app-tasks-sort-col>
+        </div>
+        <div class="col col-3 qa-la-task-list-priority">
+          <app-tasks-sort-col (change)="onSortChange($event)" columnId="priority" [settings]="sorting">
+            Priority
+          </app-tasks-sort-col>
+        </div>
+        <div class="col col-3 qa-la-task-list-booking-reference">
+          <app-tasks-sort-col (change)="onSortChange($event)" columnId="bookingRef" [settings]="sorting">
+            Booking ref.
+          </app-tasks-sort-col>
+        </div>
+        <div class="col col-4 qa-la-task-list-assignee">
+          <app-tasks-sort-col (change)="onSortChange($event)" columnId="assignee" [settings]="sorting">
+            Assignee
+          </app-tasks-sort-col>
+        </div>
+        <div class="col col-1"><strong>&nbsp;</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container [ngSwitch]="resultDisplay">
+  <ng-container *ngSwitchCase="resultTypes.RESULT">
+    <ng-container *ngFor="let task of tasks">
+      <ng-container *ngTemplateOutlet="taskTemplate; context: { task: task, selectedTask: selectedTask }"></ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngSwitchCase="resultTypes.LOADING">
+    <div class="p-2 mt-2 card bg-light text-center qa-loading-widget">
+      <app-loading-animation></app-loading-animation>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="resultTypes.EMPTY_RESULT">
+    <ngb-alert class="mt-2" insert-alert-icon [dismissible]="false">
+      No Tasks found for given filters. <a [routerLink]="['/tasks']">Reset your filters.</a>
+    </ngb-alert>
+  </ng-container>
+  <ng-container *ngSwitchCase="resultTypes.ERROR">
+    <ngb-alert class="mt-2" insert-alert-icon [dismissible]="false" type="danger">
+      Error loading tasks from the server. Please try again later.
+    </ngb-alert>
+  </ng-container>
+</ng-container>

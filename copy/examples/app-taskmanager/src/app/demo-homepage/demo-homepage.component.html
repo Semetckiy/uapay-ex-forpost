@@ -1,0 +1,26 @@
+<div style="background: transparent url('./assets/demo/AdobeStock_114742892.png') no-repeat center center; background-size: cover; margin-bottom: 150px;">
+  <div style="background: linear-gradient(179.47deg, #000000 0%, rgba(255,255,255,0) 100%);">
+    <div class="container">
+      <h1 class="display-1 text-white py-4">Welcome Gustav</h1>
+      <div class="row pb-4">
+        <div class="col-12">
+          <p-tile class="d-block" style="height: 250px" headline="Search Flights"></p-tile>
+        </div>
+      </div>
+      <div class="row pb-5">
+        <div class="col-5">
+          <p-tile class="d-block" style="height: 250px" class="qa-la-widget-title" headline="My Tasks">
+            <a class="ml-auto text-uppercase font-weight-bold qa-ref-widget-all-my-tasks" pArrowLink [routerLink]="['/tasks']">All My  Tasks</a>
+            <app-tasks-tile-page class="position-absolute h-100 w-100">
+            </app-tasks-tile-page>
+          </p-tile>
+        </div>
+        <div class="col-7">
+          <p-tile class="d-block" style="height: 250px" headline="Flight Performance">
+
+          </p-tile>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

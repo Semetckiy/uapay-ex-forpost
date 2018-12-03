@@ -1,0 +1,67 @@
+<div class="container-fluid pt-3 design-factory-v2">
+  <div class="row align-items-end">
+    <div class="col flex-grow-0 flex-shrink-0 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setTexts(null, null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [(collectionSize)]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+    <div class="col flex-grow-1 flex-shrink-0 d-flex justify-content-end align-items-end">
+<!--      <p-form-group label="Country:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="countryCode" (ngModelChange)="loadTotal($event);loadPage($event)" id="country" class="w-auto" name="countryCode">
+          <option value="" selected>All</option>
+          <option *ngFor="let country of countries | keyvalue" value="{{ country.value }}">{{ country.key }}</option>
+        </select>
+      </p-form-group>-->
+      <p-form-group label="Name:" class="ml-4">
+        <select pFormControlInput [(ngModel)]="mode" (ngModelChange)="loadTotal($event);loadPage($event)" id="mode" class="w-auto" name="mode">
+          <option value="">All</option>
+          <option *ngFor="let mode of modes" value="{{ mode }}">{{ mode }}</option>
+        </select>
+      </p-form-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th class="w-0 text-left" scope="col"></th>
+            <th class="w-0 text-center" scope="col"><a class="text-white" (click)="changeOrder('id');loadPage(sort='id')" href="javascript:void(0)"><small *ngIf="sort === 'id'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>ID</a></th>
+            <th class="w-100" scope="col"><a class="text-white" (click)="changeOrder('mode');loadPage(sort='mode')" href="javascript:void(0)"><small *ngIf="sort === 'mode'" [ngClass]="{'icon-arrow-down': (order === 'asc'), 'icon-arrow-up': (order !== 'asc')}" class="table-sort-icon position-absolute"></small>Name</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let keytext of keytexts" class="col">
+            <td class="text-left"><a (click)="setTexts(keytext.id, keytext.countryCode, keytext.lang, keytext.mode, keytext.text)" class="icon-pencil" href="javascript:void(0)" [pOpenModal]="modalEdit"></a></td>
+            <td class="text-center">{{ keytext.id }}</td>
+            <td>{{ keytext.mode }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div class="col-6 d-flex align-items-end">
+      <p-form-group class="mr-4"><a (click)="setDictionary(null, null, null, null, null)" class="btn btn-sm btn-danger" href="javascript:void(0)" [pOpenModal]="modalEdit">New</a></p-form-group>
+      <ngb-pagination (pageChange)="loadPage($event)" [(page)]="page" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [maxSize]="3" [rotate]="true" [boundaryLinks]="true" size="sm"></ngb-pagination>
+    </div>
+  </div>
+</div>
+<ng-template #modalEdit let-c="close" let-d="dismiss">
+  <p-modal (dismiss)="d($event)" title="Edit Key" [dismissible]="true">
+    <form [formGroup]="textsForm" (ngSubmit)="onSubmit()">
+      <p-form-group *ngIf="currentID !== null" label="ID:">
+        <input pFormControlInput type="text" id="modalID" [value]="currentID" [title]="currentID" readonly>
+      </p-form-group>
+      <p-form-group label="Name:">
+        <input pFormControlInput type="text" id="modalMode" formControlName="modalMode" pattern=".*" [ngClass]="{ 'is-valid': !submitted || !f.modalMode.errors, 'is-invalid': submitted && f.modalMode.errors }" [value]="currentMode" [title]="currentMode">
+        <div class="invalid-feedback" *ngIf="submitted && f.modalMode.errors"><div *ngIf="f.modalMode.errors.required">Please provide a valid name.</div></div>
+      </p-form-group>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-outline-primary" [disabled]="loading" (click)="c('close')">Cancel</button></p-form-group>
+        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" [disabled]="loading">Apply</button></p-form-group>
+<!--        <p-form-group class="m-0"><button p-modal-button class="btn btn-sm btn-primary" (click)="c('save')" [disabled]="loading">Copy</button></p-form-group>-->
+      </div>
+    </form>
+  </p-modal>
+</ng-template>

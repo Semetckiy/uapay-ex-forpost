@@ -1,0 +1,8 @@
+.tile--big{
+    height:25rem;
+   }
+
+.tile-task-manager{
+	@extend .tile--big;
+	overflow: hidden;
+}

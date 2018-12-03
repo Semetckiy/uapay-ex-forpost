@@ -1,0 +1,62 @@
+<div class="card py-2 px-3" [ngbCollapse]="expanded">
+  <div class="container p-0">
+    <div class="row">
+      <h5 class="qa-frm-filter-collapse-title col-auto mr-auto mb-0">Filter your tasks</h5>
+      <div class="px-2">
+        <button type="button" class="btn btn-link align-text-bottom col-auto p-0 qa-task-filter-expand" style="text-decoration: none;" [ngClass]="{'icon-chevron-down': !expanded, 'icon-chevron-up': expanded}" (click)="onToggleExpand()"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card px-3 py-2" [ngbCollapse]="!expanded">
+  <div class="container p-0">
+    <div class="row">
+      <h5 class="qa-frm-filter-title col-auto mr-auto">Filter your tasks</h5>
+      <div class="px-2">
+        <button type="button" class="btn btn-link align-text-bottom col-auto p-0 qa-task-filter-collapse" style="text-decoration: none;" [ngClass]="{'icon-chevron-down': !expanded, 'icon-chevron-up': expanded}" (click)="onToggleExpand()"></button>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="filterTasksForm" (ngSubmit)="submit()" class="qa-task-filter-form">
+    <div class="row">
+      <p-form-group label="Title" class="col small qa-la-filter-title">
+        <input pFormControlInput type="text" id="search-task-title" placeholder="Task title" class="form-control-sm qa-tb-filter-title" formControlName="filterTitle">
+      </p-form-group>
+      <p-form-group label="Due date" class="col small qa-la-filter-due-date">
+        <div class="input-group" [closeInputDatePicker]="d" pFormControlInput>
+          <input class="form-control form-control-sm qa-tb-filter-due-date" placeholder="yyyy-MM-dd" name="dp" [displayMonths]="displayMonths" [navigation]="navigation" ngbDatepicker #d="ngbDatepicker" formControlName="filterFromDueDate">
+          <div class="input-group-append">
+            <button class="input-group-text btn btn-outline-secondary qa-btn-filter-due-date" (click)="d.toggle()" type="button" title="Toggle calendar">
+              <span class="icon-calendar"></span>
+            </button>
+          </div>
+        </div>
+      </p-form-group>
+      <p-form-group label="Priority" class="col small qa-la-filter-priority">
+        <select pFormControlInput id="search-task-priority" class="form-control-sm qa-se-filter-priority"  formControlName="filterPriority">
+          <option value="">All</option>
+          <option value="10">High</option>
+          <option value="20">Medium</option>
+          <option value="30">Low</option>
+        </select>
+      </p-form-group>
+      <p-form-group label="Booking reference" class="col small qa-la-filter-booking-reference">
+        <input pFormControlInput type="text" id="search-task-booking-ref" placeholder="Record locator" class="form-control-sm qa-tb-filter-booking-reference" formControlName="filterBookingRef">
+      </p-form-group>
+      <p-form-group label="Assignee" class="col small qa-la-filter-assignee">
+        <select pFormControlInput id="search-task-assignee" class="form-control-sm qa-se-filter-assignee" formControlName="filterAssigneeSign">
+          <option value="">All</option>
+          <option *ngFor="let user of users | keyvalue" [value]="user.key">{{user.value.name || user.key}}</option>
+        </select>
+      </p-form-group>
+    </div>
+    <div class="text-right">
+      <button type="button" class="btn btn-link qa-btn-filter-reset" (click)="onResetClick()">Reset filters</button>
+      &nbsp;
+      <button type="submit" class="btn btn-primary qa-btn-filter"><span class="icon-filter mr-2"></span>Filter</button>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,205 @@
+<div class="card no-border">
+  <div class="card-body solution-row">
+
+    <!-- collapse header -->
+    <div class="row collapse-panel">
+      <div class="col-8 collapse-header">
+        <label> <b>{{ searchResult.price + ' ' + searchResult.currencyCode }}</b></label>
+        <br>
+        <label>{{ airlineLabel }}</label>
+      </div>
+      <div class="col-4 text-right collapse-button">
+        <span [ngClass]="isCollapsed ? 'icon-angle-down' : 'icon-angle-up'"
+              (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed">
+        </span>
+      </div>
+    </div>
+
+    <!-- collapse body -->
+    <div class="row" [ngbCollapse]="isCollapsed"> 
+
+      <!-- solution selector -->
+      <ng-container *ngFor="let flight of searchResult.flights; let flightIndex = index">
+
+        <div class="card solution-selector-panel">
+          <div class="card-body solution-selector">
+            <div class="row">
+              <div class="col-1">
+                <div class="row justify-content-center">
+                  <label>{{ flight.solutions[0].departureDate | textDay }}</label>
+                </div>
+                <div class="row justify-content-center">
+                  <label>
+                    <b>{{ flight.solutions[0].departureDate | numbertDay }}</b>
+                  </label>
+                </div>
+                <div class="row justify-content-center">
+                  <label>{{ flight.solutions[0].departureDate | textMonth }}</label>
+                </div>
+              </div>
+              <div class="col-1">
+                <div class="row justify-content-center">
+                  <label>{{ flight.solutions[0].departureLocation }}</label>
+                </div>
+                <div class="row justify-content-center">
+                  <label [ngStyle]="flightIndex == 0 ? {'transform' : 'rotate(45deg)'} : {'transform' : 'rotate(45deg)'}">
+                    <i class="icon-plane"></i>
+                  </label>
+                </div>
+                <div class="row justify-content-center">
+                  <label>{{ flight.solutions[0].arrivalLocation }}</label>
+                </div>
+              </div>
+              <div class="col-10">
+                <div class="row solution-selector-line">
+                  <b>All departure times</b>
+                </div>
+                <div class="row">
+                  <ng-container *ngFor="let departureTime of departureDateFilterValues[flightIndex]; let j = index">
+                    <div class="form-check solution-selector-radio">
+                      <input class="form-check-input"
+                             type="radio"
+                             name="depTime-{{ flightIndex }}-{{ key }}"
+                             id="depTime-{{ flightIndex }}-{{ key }}-{{ j }}"
+                             value="option-{{ flightIndex }}-{{ key }}-{{ j }}"
+                             checked="{{ departureDateFilter[flightIndex] == departureTime ? 'checked' : '' }}"
+                             (change)="selectDepartureTime(flightIndex, departureTime)">
+                      <label class="form-check-label" for="depTime-{{ flightIndex }}-{{ key }}-{{ j }}">
+                        {{ departureTime }}
+                      </label>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngFor="let solutionResult of flight.solutions; let k = index">
+          <ng-container *ngIf="solutionResult.departureTime == departureDateFilter[flightIndex]">
+
+            <div [ngClass]="solutionResult.id == selectedSolutions[flightIndex] ? 'card card-solutions selected' : 'card card-solutions'" (click)="selectSolution(flightIndex, solutionResult.id)">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-10">
+                    <ng-container *ngFor="let segment of solutionResult.segments; let segnum=index">
+
+                      <div class="row" *ngIf="segnum > 0">
+                        <div class="col-12 text-center segment-num-panel">
+                          <label class="divider">Layover ({{segment.carrier.departureLocation}} {{ segment.connectionTime }})</label>
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-1">
+                          <div class="row justify-content-center">
+                            <label class="airline-code" ngbTooltip="{{ segment.carrier.airlineDetails ? segment.carrier.airlineDetails.class.name : '' }}">
+                              {{ segment.carrier.airline.code }} {{ segment.flightNumber}}
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="col-5">
+                          <div class="row airline-label-panel">
+                            <div class="col-12">
+                              <label>{{ segment.carrier.airline.label }}</label>
+                              <div class="operatin-airline" *ngIf="segment.carrier.operatingAirline">
+                                <label class="small text-muted">Operated by {{ segment.carrier.operatingAirline.label }}</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="row justify-content-left">
+                            <label class="dep-loc-panel">{{ segment.carrier.departureLocation }}</label>
+                            <label class="dep-time-panel">
+                              <b>{{ segment.carrier.departureTime }}
+                                <ng-container *ngIf="segment.daysDifferenceDeparture"> {{ segment.daysDifferenceDeparture }}</ng-container>
+                              </b>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <div class="row justify-content-left">
+                            <label class="dep-loc-panel">{{ segment.carrier.arrivalLocation }}</label>
+                            <label class="dep-time-panel">
+                              <b>{{ segment.carrier.arrivalTime }}
+                                <ng-container *ngIf="segment.daysDifferenceArrival"> {{ segment.daysDifferenceArrival }}</ng-container>
+                              </b>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-1">
+                          <div class="row justify-content-center"><label>{{ segment.bookingClass.classOfService + segment.bookingClass.availability }}</label></div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                  <div class="col-2 text-center justify-content-center duration-time">
+                    <div>
+                      <label>
+                        <i class="icon-clock-o"></i>
+                      </label>
+                      <br>
+                      <label>
+                        {{ solutionResult.duration | hhmm }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+
+      <div class="card" style="background-color: #EEF4F8; width: 100%; margin-left: 25px; margin-top: 2px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-1">
+              <!--<div class="row justify-content-center"><label>CLASSIC</label></div>-->
+            </div>
+            <div class="col-9">
+              <div class="row justify-content-center">
+                <!--<label style="margin-left: 5px; margin-right: 5px;">-->
+                <!--<i class="icon-archive"></i>-->
+                <!--</label>-->
+                <!--<label style="margin-left: 5px; margin-right: 5px;">-->
+                <!--<i class="icon-shield"></i>-->
+                <!--</label>-->
+                <!--<label style="margin-left: 5px; margin-right: 5px;">-->
+                <!--<i class="icon-bank"></i>-->
+                <!--</label>-->
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="row justify-content-center">
+                <label>
+                  <b>{{ searchResult.price + ' ' + searchResult.currencyCode }}</b>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="background-color: #EEF4F8; width: 100%; margin-left: 25px; margin-top: 2px;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+              <div class="row justify-content-center">
+                <input type="button" class="btn btn-primary btn-sm" value="Book" (click)="onBook(searchResult.id,  searchResult.travelShopperTicket)" style="min-width: 80px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

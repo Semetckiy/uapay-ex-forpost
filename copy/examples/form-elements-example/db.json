@@ -1,0 +1,485 @@
+{
+  "config": {
+    "header": {
+      "serviceLinks": [
+        {
+          "title": "FAQ",
+          "link": "/faq"
+        },
+        {
+          "title": "Service Hub",
+          "link": "/service-hub"
+        },
+        {
+          "title": "Logout",
+          "link": "/logout"
+        }
+      ],
+      "navigationLinks": [
+        {
+          "title": "Homepage",
+          "link": "/homepage"
+        },
+        {
+          "title": "Dashboard",
+          "link": "/dashboard"
+        },
+        {
+          "title": "Amadeus Store",
+          "link": "/amadeus-store"
+        },
+        {
+          "title": "News",
+          "link": "/news"
+        }
+      ],
+      "accountLinks": [
+        {
+          "title": "Profile details",
+          "link": "/account/profile"
+        },
+        {
+          "title": "Agency details",
+          "link": "/account/agency"
+        },
+        {
+          "title": "Orders",
+          "link": "/account/orders"
+        },
+        {
+          "title": "Inventory",
+          "link": "/account/inventory"
+        },
+        {
+          "title": "Invoices",
+          "link": "/account/invoices"
+        },
+        {
+          "title": "Contracts",
+          "link": "/account/contracts"
+        },
+        {
+          "title": "Agency wishlists",
+          "link": "/account/agency-wishlists"
+        }
+      ],
+      "logoLink": "/",
+      "copyright": "© Amadeus IT Group SA"
+    },
+    "footer": {
+      "termsLinks": [
+        {
+          "title": "Terms of Use",
+          "link": "/term-of-use"
+        },
+        {
+          "title": "Cookies Policy",
+          "link": "/cookies-policy"
+        },
+        {
+          "title": "Privacy Policy",
+          "link": "/privacy-policy"
+        }
+      ],
+      "socialLinks": [
+        {
+          "title": "Facebook",
+          "link": "/facebook"
+        }
+      ],
+      "logoLink": "/",
+      "copyright": "© Amadeus IT Group SA"
+    }
+  },
+  "profile": {
+    "personTitles": {
+      "options": [
+        {
+          "id": "id_1",
+          "value": "Mr."
+        },
+        {
+          "id": "id_2",
+          "value": "Ms."
+        }
+      ]
+    },
+    "personJobs": {
+      "options": [
+        {
+          "id": "id_1",
+          "value": "job position 1"
+        },
+        {
+          "id": "id_2",
+          "value": "job position 2"
+        },
+        {
+          "id": "id_3",
+          "value": "job position 3"
+        }
+      ]
+    },
+    "personContactLang": {
+      "options": [
+        {
+          "id": "id_1",
+          "value": "English-British"
+        },
+        {
+          "id": "id_2",
+          "value": "Navi-Belarus"
+        },
+        {
+          "id": "id_3",
+          "value": "Poland-Ukraine"
+        }
+      ]
+    },
+    "personBusiness": {
+      "options": [
+        {
+          "id": "id_1",
+          "value": "business 1"
+        },
+        {
+          "id": "id_2",
+          "value": "business 2"
+        },
+        {
+          "id": "id_3",
+          "value": "business 3"
+        }
+      ]
+    },
+    "title": {
+      "value": "id_2",
+      "label": "Title",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "firstName": {
+      "value": "Dimitri",
+      "label": "First name (required)",
+      "description": "Only latin characters allowed",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "lastName": {
+      "value": "Vergos",
+      "label": "Last name (required)",
+      "description": "Only latin characters allowed",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "firstLocalName": {
+      "value": "伟大",
+      "label": "First name (local)",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "lastLocalName": {
+      "value": "老板",
+      "label": "Last name (local)",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "jobTitle": {
+      "value": "System architect",
+      "label": "Job title ",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "jobPosition": {
+      "value": "id_2",
+      "label": "Job position",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "contactLang": {
+      "value": "id_3",
+      "label": "Preferred contact langage",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "primaryBusiness": {
+      "value": "id_3",
+      "label": "Primary business",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "email": {
+      "value": "Dimitri.VERGOS@amadeus.com",
+      "label": "E-mail",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "workPhone": {
+      "value": "+33 492 948 431",
+      "label": "Work phone number",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "mobilePhone": {
+      "value": "+33 633 766 510",
+      "label": "Mobile phone number",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "amadeusOffice": {
+      "value": "TCH-R&D-FOR",
+      "label": "Amadeus office",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "address": {
+      "value": "CGI France",
+      "label": "Address",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "city": {
+      "value": "Sophia",
+      "label": "City",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "zip": {
+      "value": "11111",
+      "label": "Zip code",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "state": {
+      "value": "",
+      "label": "State",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "country": {
+      "value": "France",
+      "label": "Country",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "timeZone": {
+      "value": "",
+      "label": "Time zone",
+      "description": "",
+      "placeholder": "",
+      "enabled": false,
+      "required": true
+    },
+    "isPersonalizedOffers": {
+      "value": true,
+      "label": "I wish to receive personalized offers",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "isAdmin": {
+      "value": "Yes",
+      "label": "You are an administrator :",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    }
+  },
+  "agency": {
+    "name": {
+      "value": "Barcelona",
+      "label": "Agency name",
+      "description": "",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    },
+    "code": {
+      "value": "12345",
+      "label": "Agency code",
+      "description": "only numeric values allowed",
+      "placeholder": "",
+      "enabled": true,
+      "required": true
+    }
+  },
+  "check-email": {
+    "error": true
+  },
+  "getNews": {
+    "list": [
+      {
+        "date": "21 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-1",
+        "cats": [
+          { "title": "Innovation" }
+        ]
+      },
+      {
+        "date": "25 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" },
+          { "title": "Post" }
+        ]
+      },
+      {
+        "date": "26 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" },
+          { "title": "Post" }
+        ]
+      },
+      {
+        "date": "27 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Test" },
+          { "title": "Post" }
+        ]
+      },
+      {
+        "date": "28 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" }
+        ]
+      },
+      {
+        "date": "29 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" },
+          { "title": "Post" }
+        ]
+      },
+      {
+        "date": "30 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" }
+        ]
+      },
+      {
+        "date": "31 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" },
+          { "title": "Post" }
+        ]
+      }
+    ]
+  },
+  "news-sort-date": {
+    "options": [
+      {
+        "id": "id_1",
+        "value": "sort by date 1"
+      },
+      {
+        "id": "id_2",
+        "value": "sort by date 2"
+      },
+      {
+        "id": "id_3",
+        "value": "sort by date 3"
+      }
+    ]
+  },
+  "news-sort-cat": {
+    "options": [
+      {
+        "id": "id_1",
+        "value": "sort by cat 1"
+      },
+      {
+        "id": "id_2",
+        "value": "sort by cat 2"
+      },
+      {
+        "id": "id_3",
+        "value": "sort by cat 3"
+      },
+      {
+        "id": "id_4",
+        "value": "sort by cat 4"
+      }
+    ]
+  },
+  "getSortedNews": {
+    "list": [
+      {
+        "date": "21 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-1",
+        "cats": [
+          { "title": "Innovation" }
+        ]
+      },
+      {
+        "date": "25 July 2018",
+        "title": "Amadeus invests in CrowdVision to help airports manage growing passenger volumes",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem juston, sollicitudin vel lorem vel, porttitor des accumsan matetus.",
+        "link": "/test-link-2",
+        "cats": [
+          { "title": "Innovation" },
+          { "title": "Post" }
+        ]
+      }
+    ]
+  }
+}

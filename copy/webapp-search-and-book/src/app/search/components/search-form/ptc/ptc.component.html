@@ -1,0 +1,14 @@
+<input *ngIf="pnrContext?.travellers?.length > 0; else ptcEditorComponent" prefixId="prefilled-ptc-input" class="form-control"
+  type="text" name="ptc" [value]="computePassengerInputValue(pnrContext)" readonly />
+<ng-template #ptcEditorComponent>
+  <div class="d-none d-sm-block">
+    <ama-ng-airpulse-ptc-desktop (ptcOutput)="updateValue($event)" [formPTC]="formPTC" [ptcBase]="ptcBaseObject">
+    </ama-ng-airpulse-ptc-desktop>
+  </div>
+
+  <!-- display mobile date picker only for sm screen size and smaller -->
+  <div class="d-block d-sm-none">
+    <ama-ng-airpulse-ptc-mobile (ptcOutput)="updateValue($event)" [formPTC]="formPTC" [ptcBase]="ptcBaseObject">
+    </ama-ng-airpulse-ptc-mobile>
+  </div>
+</ng-template>

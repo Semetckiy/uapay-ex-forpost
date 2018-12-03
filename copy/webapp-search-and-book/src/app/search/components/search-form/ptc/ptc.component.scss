@@ -1,0 +1,23 @@
+@import '~design-factory-v2/design-factory-utilities';
+
+ul {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.popover-menu {
+  padding-top: 1.5rem;
+}
+
+.ptclabel {
+  font-family: 'Amadeus Light', sans-serif;
+  font-size: 1.5rem;
+}
+
+.input-readonly {
+  background-color: $white !important;
+}
+
+.popover-form-container {
+  width: 250px;
+}

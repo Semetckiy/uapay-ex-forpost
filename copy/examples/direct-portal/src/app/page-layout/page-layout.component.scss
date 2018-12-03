@@ -1,0 +1,21 @@
+$sidebar-width: 5.75rem;
+
+.content {
+  width: auto;
+  margin-left: $sidebar-width;
+  position: relative;
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  width: $sidebar-width;
+  float: left;
+}
+
+
+.nav-link img {
+  display: block;
+  width: 2.5rem;
+  margin: 0 auto 0.5rem;
+}
