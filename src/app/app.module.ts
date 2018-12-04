@@ -22,6 +22,8 @@ import { AuthenticationComponent } from './authentication/component/authenticati
 import { AuthenticationConnectFormDirective } from './authentication/directive/authentication-connect-form.directive';
 
 import { AuthenticationValidators } from './authentication/validator/authentication-validators';
+import {LoginService} from './redux/services/login.service';
+
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { AuthenticationValidators } from './authentication/validator/authenticat
     AppRoutingModule
   ],
   providers: [
-    AuthenticationValidators
+    AuthenticationValidators,
+    LoginService
   ],
   bootstrap: [AuthenticationComponent]
 })
