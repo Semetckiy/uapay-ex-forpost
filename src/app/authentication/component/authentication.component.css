@@ -1,0 +1,32 @@
+.login-panel {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  max-width: 400px;
+}
+
+.login-form {
+  min-width: 150px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.login-input {
+  width: 100%;
+}
+
+.login-btn {
+  min-width: 150px;
+  margin-top: 10px;
+}
+
+/*::ng-deep mat-card .mat-card-header-text {*/
+  /*margin: 0px;*/
+/*}*/
+
+
+
