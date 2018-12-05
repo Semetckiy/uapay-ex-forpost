@@ -1,29 +1,32 @@
 import { Action } from '@ngrx/store';
-import { Fields } from '../models/login.model';
+import { Fields as LoginFields } from '../models/login-fields.model';
+import { Fields as LoginResults } from '../models/login-results.model';
 
 export enum LoginActionTypes {
   Init          = '[Login] Init',
-  UpdateFields  = '[Login] Update fields',
-  Submit        = '[Login] Submit'
+  Login         = '[Login] Login',
+  Logined       = '[Login] Logined',
+  UpdateFields  = '[Login] Update fields'
 }
-
 
 export class Init implements Action {
   readonly type = LoginActionTypes.Init;
-
-  constructor(public payload: Fields) { }
+  constructor(public payload: LoginFields) { }
 }
 
-export class Submit implements Action {
-  readonly type = LoginActionTypes.Submit;
+export class Login implements Action {
+  readonly type = LoginActionTypes.Login;
+  constructor(public payload: LoginResults) { }
+}
 
-  constructor(public payload: { params: any }) { }
+export class Logined implements Action {
+  readonly type = LoginActionTypes.Logined;
+  constructor(public payload: {}) { }
 }
 
 export class UpdateFields implements Action {
   readonly type = LoginActionTypes.UpdateFields;
-
-  constructor(public payload: Fields) { }
+  constructor(public payload: LoginFields) { }
 }
 
-export type LoginActions = Init | Submit | UpdateFields;
+export type LoginActions = Init | Login | Logined | UpdateFields;

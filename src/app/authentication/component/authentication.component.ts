@@ -5,6 +5,9 @@ import { Observable, Subscription } from 'rxjs';
 import { State as loginState } from '../../redux/reducers/login.reducer';
 import * as rootReducers from '../../redux/reducers/index';
 import { AuthenticationValidators } from '../validator/authentication-validators';
+// import { LoginService } from '../../redux/services/login.service';
+import {map} from 'rxjs/internal/operators';
+import {Login} from '../../redux/actions/login.actions';
 
 
 @Component({
@@ -19,7 +22,7 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   formGroup: FormGroup;
-  companyName = 'UAPAY';
+  companyName = 'test';
   hide = true;
 
   constructor(
@@ -44,8 +47,10 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
     });
   }
 
-  private submit() {
+  private submit(a) {
+    // return this.loginService.login(a);
 
+    this.store.dispatch(new Login({value: '1111'}));
   }
 
   test(state) {

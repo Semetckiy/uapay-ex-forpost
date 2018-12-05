@@ -1,15 +1,20 @@
 import { LoginActionTypes, LoginActions } from '../actions/login.actions';
-import { Fields } from '../models/login.model';
+import { Fields as LoginFields } from '../models/login-fields.model';
+import { Fields as LoginResult } from '../models/login-results.model';
 
 export interface State {
-  fields: Fields;
+  fields: LoginFields;
+  ticket: LoginResult;
 }
 
 function getInitialState(): State {
   return {
     fields: {
-      userName: '',
+      username: '',
       password: ''
+    },
+    ticket: {
+      value: ''
     }
   };
 }
