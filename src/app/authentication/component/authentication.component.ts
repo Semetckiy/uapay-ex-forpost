@@ -1,11 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
-import { State as loginState } from '../../redux/reducers/login.reducer';
-import * as rootReducers from '../../redux/index';
-import {Login} from '../../redux/actions/login.actions';
-
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,28 +9,20 @@ import {Login} from '../../redux/actions/login.actions';
   styleUrls: ['./authentication.component.css']
 })
 
-export class AuthenticationComponent implements OnInit, OnDestroy {
-
-  login$: Observable<loginState>;
-  subscription: Subscription;
+export class AuthenticationComponent implements OnInit {
 
   formGroup: FormGroup;
   companyName = 'test';
   hide = true;
 
   constructor(
-    private store: Store<any>,
-    private formBuilder: FormBuilder
-  ) {
-    this.login$ = store.pipe(select(rootReducers.getLoginState));
-  }
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
 
   ngOnInit() {
     this.createFormGroup();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   private createFormGroup() {
@@ -44,20 +32,19 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
     });
   }
 
-  private submit(fields) {
+  private submit() {
 
     const credentials = {
-      username: fields.username,
-      password: fields.password,
+      username: this.formGroup.get('username').value,
+      password: this.formGroup.get('password').value,
     };
 
-    console.log('user credentials: ', credentials);
+    this.authenticationService.login(credentials)
+      .then((responce) => {
+        console.log('login response: ', responce);
+        this.router.navigate(['/app/device-rro']);
+      });
 
-    this.store.dispatch(new Login(credentials));
-  }
-
-  test(state) {
-    console.log('state: ', state);
   }
 
 }

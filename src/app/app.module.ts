@@ -11,27 +11,22 @@ import {
   MatIconModule
 } from '@angular/material';
 
-import { StoreModule, Store } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-
-import { reducers, metaReducers } from './root.reducers';
-
-import * as fromFeature from './redux/index';
-import { LoginEffects } from './redux/effects/login.effects';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthenticationComponent } from './authentication/component/authentication.component';
-import { AuthenticationConnectFormDirective } from './authentication/directive/authentication-connect-form.directive';
 import { AuthenticationValidators } from './authentication/validator/authentication-validators';
+import { AuthenticationService } from './authentication/services/authentication.service';
 
-import { LoginService } from './redux/services/login.service';
+import { LayoutComponent } from './pages/_layout/layout.component';
+
+import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
 
 
 @NgModule({
   declarations: [
     AuthenticationComponent,
-    AuthenticationConnectFormDirective
+    LayoutComponent,
+    DeviceRroComponent
   ],
   imports: [
     BrowserModule,
@@ -44,20 +39,17 @@ import { LoginService } from './redux/services/login.service';
     MatCardModule,
     MatInputModule,
     MatIconModule,
-    StoreModule.forRoot(reducers, {metaReducers}),
-    StoreModule.forFeature('app', fromFeature.reducers),
-    EffectsModule.forRoot([LoginEffects]),
     AppRoutingModule
   ],
   providers: [
     AuthenticationValidators,
-    LoginService
+    AuthenticationService
   ],
   bootstrap: [AuthenticationComponent]
 })
 
 export class AppModule {
 
-  constructor(private store: Store<any>) { }
+  constructor() { }
 
 }

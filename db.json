@@ -1,10 +1,5 @@
 {
   "login": {
-    "value": "YzNhOTA2ZDEtOTQwNy00NWU3LThiMTYtMDlkODkxYWNhZDBl",
-    "code": "200",
-    "message": "success"
-  },
-  "userData": {
-    "userName": "Fomora"
+    "ticket": "YzNhOTA2ZDEtOTQwNy00NWU3LThiMTYtMDlkODkxYWNhZDBl"
   }
 }

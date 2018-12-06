@@ -1,25 +1,24 @@
-<ng-container *ngIf="login$ | async as login">
-  <div class="login-panel">
-    <mat-card class="login-card">
-      <mat-card-header class="justify-content-center">
-        <mat-card-title>{{ companyName }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form [formGroup]="formGroup" appConnectLoginForm class="login-form" (submit)="submit(login.fields);">
-          <mat-form-field class="login-input">
-            <input matInput formControlName="username" placeholder="Enter your username">
-            <mat-error *ngIf="formGroup.get('username').hasError('required')">username is required</mat-error>
-          </mat-form-field>
-          <mat-form-field class="login-input">
-            <input matInput formControlName="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-            <mat-error *ngIf="formGroup.get('password').hasError('required')">password is required</mat-error>
-          </mat-form-field>
-          <div class="text-center">
-            <button mat-raised-button type="submit" class="login-btn">Login</button>
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</ng-container>
+<div class="login-panel">
+  <mat-card class="login-card">
+    <mat-card-header class="justify-content-center">
+      <mat-card-title>{{ companyName }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="formGroup" class="login-form" (submit)="submit();">
+        <mat-form-field class="login-input">
+          <input matInput formControlName="username" placeholder="Enter your username">
+          <mat-error *ngIf="formGroup.get('username').hasError('required')">username is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="login-input">
+          <input matInput formControlName="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <mat-error *ngIf="formGroup.get('password').hasError('required')">password is required</mat-error>
+        </mat-form-field>
+        <div class="text-center">
+          <button mat-raised-button type="submit" class="login-btn">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>
