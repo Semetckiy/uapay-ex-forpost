@@ -13,18 +13,19 @@ import {
 
 import { StoreModule, Store } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromFeature from './redux/reducers/index';
+
 import { reducers, metaReducers } from './root.reducers';
+
+import * as fromFeature from './redux/index';
 import { LoginEffects } from './redux/effects/login.effects';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthenticationComponent } from './authentication/component/authentication.component';
 import { AuthenticationConnectFormDirective } from './authentication/directive/authentication-connect-form.directive';
-
 import { AuthenticationValidators } from './authentication/validator/authentication-validators';
-import {LoginService} from './redux/services/login.service';
 
+import { LoginService } from './redux/services/login.service';
 
 
 @NgModule({

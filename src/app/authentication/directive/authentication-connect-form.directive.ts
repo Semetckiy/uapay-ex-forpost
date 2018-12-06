@@ -2,9 +2,9 @@ import { Directive, Input, OnInit, OnDestroy } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { FormGroupDirective } from '@angular/forms';
 import { debounceTime, take } from 'rxjs/internal/operators';
-import { getLoginState, State } from '../../redux/reducers/index';
+import { getLoginState, State } from '../../redux/index';
 import { Subscription } from 'rxjs/index';
-import { UpdateFields } from '../../redux/actions/login.actions';
+import { UpdateLoginFields} from '../../redux/actions/login.actions';
 
 @Directive({
   selector: '[appConnectLoginForm]'
@@ -30,7 +30,7 @@ export class AuthenticationConnectFormDirective implements OnInit, OnDestroy {
     this.formChange = this.formGroupDirective.form.valueChanges
       .pipe(debounceTime(this.debounce))
       .subscribe(value => {
-        this.store.dispatch(new UpdateFields(value));
+        this.store.dispatch(new UpdateLoginFields(value));
       });
   }
 

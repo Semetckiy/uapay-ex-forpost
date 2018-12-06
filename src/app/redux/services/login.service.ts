@@ -1,29 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { Fields as loginFields } from '../models/login-fields.model';
-import {map} from 'rxjs/internal/operators';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable()
-
 export class LoginService {
 
-  results = '';
-  URL = 'http://localhost:3000/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  init(): Observable<boolean> {
-    this.results = '';
-    return of(true);
-  }
-
-  login(): Observable<boolean> {
-    return this.http.get(this.URL + 'login').pipe(map((results: any) => {
-      console.log('results: ', results);
-      this.results = results;
-      return true;
-    }));
+  login(userCredentials: any): Observable<any> {
+    return this.http.get('http://localhost:3000/login').pipe(response => {
+      return response;
+    });
   }
 
 }

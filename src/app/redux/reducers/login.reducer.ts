@@ -1,6 +1,6 @@
-import { LoginActionTypes, LoginActions } from '../actions/login.actions';
-import { Fields as LoginFields } from '../models/login-fields.model';
-import { Fields as LoginResult } from '../models/login-results.model';
+import {LoginActionTypes, LoginActions } from '../actions/login.actions';
+import { LoginFields } from '../models/login-fields.model';
+import { LoginResult } from '../models/login-result.model';
 
 export interface State {
   fields: LoginFields;
@@ -14,7 +14,9 @@ function getInitialState(): State {
       password: ''
     },
     ticket: {
-      value: ''
+      value: '',
+      message: '',
+      code: ''
     }
   };
 }
@@ -28,8 +30,12 @@ export function reducer(state = initialState, action: LoginActions): State {
       return { ...getInitialState(), fields: action.payload };
     }
 
-    case LoginActionTypes.UpdateFields: {
+    case LoginActionTypes.UpdateLoginFields: {
       return {...state, fields: action.payload};
+    }
+
+    case LoginActionTypes.SetLoginResult: {
+      return {...state, ticket: action.payload };
     }
 
     default: {

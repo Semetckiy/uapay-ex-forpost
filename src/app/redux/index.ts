@@ -1,5 +1,5 @@
 import { ActionReducerMap, createSelector } from '@ngrx/store';
-import * as fromLogin from './login.reducer';
+import * as fromLogin from './reducers/login.reducer';
 
 export interface State {
   login: fromLogin.State;

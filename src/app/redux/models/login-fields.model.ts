@@ -1,4 +1,4 @@
-export interface Fields {
+export interface LoginFields {
   username: string;
   password: string;
 }

@@ -3,10 +3,7 @@ import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/f
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { State as loginState } from '../../redux/reducers/login.reducer';
-import * as rootReducers from '../../redux/reducers/index';
-import { AuthenticationValidators } from '../validator/authentication-validators';
-// import { LoginService } from '../../redux/services/login.service';
-import {map} from 'rxjs/internal/operators';
+import * as rootReducers from '../../redux/index';
 import {Login} from '../../redux/actions/login.actions';
 
 
@@ -42,15 +39,21 @@ export class AuthenticationComponent implements OnInit, OnDestroy {
 
   private createFormGroup() {
     this.formGroup = this.formBuilder.group({
-      userName: ['', [Validators.required]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
 
-  private submit(a) {
-    // return this.loginService.login(a);
+  private submit(fields) {
 
-    this.store.dispatch(new Login({value: '1111'}));
+    const credentials = {
+      username: fields.username,
+      password: fields.password,
+    };
+
+    console.log('user credentials: ', credentials);
+
+    this.store.dispatch(new Login(credentials));
   }
 
   test(state) {
