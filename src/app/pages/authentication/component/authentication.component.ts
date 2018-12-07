@@ -45,7 +45,7 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.login(credentials)
       .then((responce) => {
         console.log('login response: ', responce);
-        this.store.set('ticket', responce.ticket);
+        this.store.set('ticket', responce['ticket']);
         this.router.navigate(['/device-rro']);
       });
 

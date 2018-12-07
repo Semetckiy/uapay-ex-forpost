@@ -8,13 +8,17 @@ import {
   MatCheckboxModule,
   MatCardModule,
   MatInputModule,
-  MatIconModule
+  MatIconModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatTabsModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { StoreService } from './shared/store.service';
 
 import { LayoutComponent } from './pages/layout/layout.component';
+import { HeaderComponent } from './pages/header/header.component';
 
 import { AuthenticationComponent } from './pages/authentication/component/authentication.component';
 import { AuthenticationValidators } from './pages/authentication/validator/authentication-validators';
@@ -27,6 +31,7 @@ import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
   declarations: [
     AuthenticationComponent,
     LayoutComponent,
+    HeaderComponent,
     DeviceRroComponent
   ],
   imports: [
@@ -40,6 +45,9 @@ import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
     MatCardModule,
     MatInputModule,
     MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatTabsModule,
     AppRoutingModule
   ],
   providers: [

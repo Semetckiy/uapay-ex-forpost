@@ -10,18 +10,25 @@ import { StoreService } from '../../shared/store.service';
 
 export class LayoutComponent implements OnInit {
 
+  public ticket;
+  public isLoggedIn;
+
   constructor(
     private store: StoreService,
     private router: Router
-  ) { }
+  ) {
+    this.isLoggedIn = false;
+  }
 
   ngOnInit() {
-    const ticket = this.store.get('ticket');
-    if (ticket) {
+    this.ticket = this.store.get('ticket');
+    if (this.ticket) {
       console.log('logged!');
+      this.isLoggedIn = true;
       this.router.navigate(['/device-rro']);
     } else {
       console.log('not logged!');
+      this.isLoggedIn = false;
       this.router.navigate(['/authentication']);
     }
   }
