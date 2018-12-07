@@ -12,12 +12,13 @@ import {
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
+import { StoreService } from './shared/store.service';
 
-import { AuthenticationComponent } from './authentication/component/authentication.component';
-import { AuthenticationValidators } from './authentication/validator/authentication-validators';
-import { AuthenticationService } from './authentication/services/authentication.service';
+import { LayoutComponent } from './pages/layout/layout.component';
 
-import { LayoutComponent } from './pages/_layout/layout.component';
+import { AuthenticationComponent } from './pages/authentication/component/authentication.component';
+import { AuthenticationValidators } from './pages/authentication/validator/authentication-validators';
+import { AuthenticationService } from './pages/authentication/services/authentication.service';
 
 import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
 
@@ -43,9 +44,10 @@ import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
   ],
   providers: [
     AuthenticationValidators,
-    AuthenticationService
+    AuthenticationService,
+    StoreService
   ],
-  bootstrap: [AuthenticationComponent]
+  bootstrap: [LayoutComponent]
 })
 
 export class AppModule {

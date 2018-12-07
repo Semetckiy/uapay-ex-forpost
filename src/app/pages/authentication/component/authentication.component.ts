@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { StoreService } from '../../../shared/store.service';
+
 
 @Component({
   selector: 'app-root',
@@ -18,7 +20,8 @@ export class AuthenticationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private store: StoreService
   ) {}
 
   ngOnInit() {
@@ -42,7 +45,8 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.login(credentials)
       .then((responce) => {
         console.log('login response: ', responce);
-        this.router.navigate(['/app/device-rro']);
+        this.store.set('ticket', responce.ticket);
+        this.router.navigate(['/device-rro']);
       });
 
   }
