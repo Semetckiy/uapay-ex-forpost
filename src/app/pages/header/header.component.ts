@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { StoreService } from '../../shared/store.service';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,20 @@ export class HeaderComponent implements OnInit {
 
   lang = 'Item 1';
 
-  constructor() {}
+  constructor(
+    private store: StoreService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
   setLang(_lang) {
     this.lang = _lang;
+  }
+
+  login() {
+    this.store.set('ticket', null);
+    this.router.navigate(['/authentication']);
   }
 
 }

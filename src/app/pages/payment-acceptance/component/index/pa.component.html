@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div class="container pa-layout">
+  <div class="row pa-panel">
+
+    <div class="col-4 pa-action-layout">
+      <mat-card class="z-depth pa-action-panel" [routerLink]="'/payment-acceptance/create'">
+        <mat-card-content class="text-center pa-action-content">
+          <label class="pa-text-title">СОЗДАТЬ</label>
+          <br>
+          <label class="pa-text-description">новый платеж</label>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-4 pa-action-layout">
+      <mat-card class="z-depth pa-action-panel" (click)="test()">
+        <mat-card-content class="text-center pa-action-content">
+          <label class="pa-text-title">РЕДАКТИРОВАТЬ</label>
+          <br>
+          <label class="pa-text-description">платеж</label>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-4 pa-action-layout">
+      <mat-card class="z-depth pa-action-panel" (click)="test()">
+        <mat-card-content class="text-center pa-action-content">
+          <label class="pa-text-title">ВЫДАЧА / ВОЗВРАТ</label>
+          <br>
+          <label class="pa-text-description">платежа</label>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,89 @@
+.pa-layout {
+  height: 100%;
+}
+
+.pa-panel {
+  margin-left: 0px;
+  margin-right: 0px;
+  height: 100%;
+}
+
+.pa-action-layout {
+  padding: 45px 15px;
+}
+
+.pa-action-panel {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.pa-action-content {
+  width: 100%;
+}
+
+.pa-text-title {
+  line-height: 50px;
+  font-size: 25px;
+}
+
+.pa-text-description {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+
+
+
+
+
+
+/*.example-card {*/
+  /*max-width: 400px;*/
+/*}*/
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+/*mat-card {*/
+  /*background-color: rgba(240, 248, 255, 0.34);*/
+/*}*/
+
+mat-card:hover {
+  background-color: white;
+  cursor: pointer;
+  color: black;
+}
+
+
+.z-depth {
+  color: #6c757d;
+  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12) !important;
+  transform: translate3d(0,0,0);
+  transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+
+.z-depth:hover {
+  background-color: #8e9da5;
+  color: white;
+  box-shadow: 0 8px 8px rgba(10,16,20,.24), 0 0 8px rgba(10,16,20,.12) !important;
+  transform: translate3d(0,0,0);
+  transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+}
+
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.card-header-label {
+  color: #8e9da5 !important;
+}
+
+.card-header-label:hover {
+  color: black;
+}

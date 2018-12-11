@@ -10,6 +10,8 @@ import { StoreService } from '../../shared/store.service';
 
 export class DeviceRroComponent implements OnInit {
 
+  selectedTab = 'item_1';
+
   constructor(
     private store: StoreService,
     private router: Router
@@ -20,6 +22,10 @@ export class DeviceRroComponent implements OnInit {
   test() {
     this.store.set('ticket', null);
     this.router.navigate(['/authentication']);
+  }
+
+  selectTab(tab) {
+    this.selectedTab = tab;
   }
 
 }

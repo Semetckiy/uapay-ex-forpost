@@ -3,12 +3,16 @@ import { RouterModule} from '@angular/router';
 import { AuthenticationComponent } from './pages/authentication/component/authentication.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
+import { PaComponent } from './pages/payment-acceptance/component/index/pa.component';
+import { PaCreateComponent } from './pages/payment-acceptance/component/create/pa-create.component';
 
 const ROUTES = [
-  { path: '',               component: LayoutComponent },
-  { path: 'authentication', component: AuthenticationComponent },
-  { path: 'device-rro',     component: DeviceRroComponent },
-  { path: '**',             component: LayoutComponent }
+  { path: '',                           component: LayoutComponent },
+  { path: 'authentication',             component: AuthenticationComponent },
+  { path: 'device-rro',                 component: DeviceRroComponent },
+  { path: 'payment-acceptance',         component: PaComponent },
+  { path: 'payment-acceptance/create',  component: PaCreateComponent },
+  { path: '**',                         component: LayoutComponent }
 ];
 
 @NgModule({

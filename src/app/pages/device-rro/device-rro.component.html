@@ -1,4 +1,102 @@
 <app-header></app-header>
 
-<p>device rro worked!</p>
-<input type="button" value="adsad" (click)="test();">
+<!--<p>device rro worked!</p>-->
+<!--<input type="button" value="adsad" (click)="test();">-->
+
+<div class="row" style="margin-left: 0px; margin-right: 0px; height: 100%">
+  <div class="col-2" style="height: 100%;">
+    <mat-list>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_1');" style="width: 100%;">Item 1</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_2');" style="width: 100%;">Item 2</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_3');" style="width: 100%;">Item 3</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_4');" style="width: 100%;">Item 4</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_5');" style="width: 100%;">Item 5</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_6');" style="width: 100%;">Item 6</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button (click)="selectTab('item_7');" style="width: 100%;">Item 7</button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="col-10" style="padding-top: 15px;">
+
+    <ng-container [ngSwitch]="selectedTab">
+      <ng-container *ngSwitchCase="'item_1'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 1 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngSwitchCase="'item_2'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 2 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngSwitchCase="'item_3'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 3 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngSwitchCase="'item_4'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 4 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngSwitchCase="'item_5'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 5 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngSwitchCase="'item_6'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 6 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngSwitchCase="'item_7'">
+        <mat-card style="height: 100%;">
+          <div class="row">
+            <div class="col-12">
+              item 7 content
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
+    </ng-container>
+
+
+  </div>
+</div>

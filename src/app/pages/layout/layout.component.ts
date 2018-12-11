@@ -25,7 +25,8 @@ export class LayoutComponent implements OnInit {
     if (this.ticket) {
       console.log('logged!');
       this.isLoggedIn = true;
-      this.router.navigate(['/device-rro']);
+      // this.router.navigate(['/device-rro']);
+      console.log('router: ', this.router);
     } else {
       console.log('not logged!');
       this.isLoggedIn = false;

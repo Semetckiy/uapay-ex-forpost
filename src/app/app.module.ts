@@ -11,7 +11,8 @@ import {
   MatIconModule,
   MatToolbarModule,
   MatMenuModule,
-  MatTabsModule
+  MatTabsModule,
+  MatListModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,13 +27,18 @@ import { AuthenticationService } from './pages/authentication/services/authentic
 
 import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
 
+import { PaComponent } from './pages/payment-acceptance/component/index/pa.component';
+import { PaCreateComponent } from './pages/payment-acceptance/component/create/pa-create.component';
+
 
 @NgModule({
   declarations: [
     AuthenticationComponent,
     LayoutComponent,
     HeaderComponent,
-    DeviceRroComponent
+    DeviceRroComponent,
+    PaComponent,
+    PaCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,7 @@ import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
     MatToolbarModule,
     MatMenuModule,
     MatTabsModule,
+    MatListModule,
     AppRoutingModule
   ],
   providers: [

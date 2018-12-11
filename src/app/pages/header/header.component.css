@@ -9,3 +9,8 @@
 mat-toolbar .mat-tab-label {
   height: 100%;
 }
+
+.menu-item-active {
+  border-bottom: 2px solid white;
+  border-radius: 0px;
+}

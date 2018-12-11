@@ -1,34 +1,62 @@
-<mat-toolbar color="primary" style="zoom: 75%;">
+<!--<mat-toolbar color="primary" style="zoom: 75%;">-->
+  <!--<mat-toolbar-row>-->
+    <!--<span>Most</span>-->
+
+
+
+
+
+    <!--<span class="example-spacer"></span>-->
+
+    <!--&lt;!&ndash;<button mat-button [matMenuTriggerFor]="menu">{{lang}}</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;<mat-menu #menu="matMenu">&ndash;&gt;-->
+      <!--&lt;!&ndash;<button mat-menu-item (click)="setLang('Item 1');">Item 1</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;<button mat-menu-item (click)="setLang('Item 2');">Item 2</button>&ndash;&gt;-->
+      <!--&lt;!&ndash;<button mat-menu-item (click)="setLang('Item 3');">Item 3</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;</mat-menu>&ndash;&gt;-->
+
+    <!--<mat-icon class="example-icon" style="margin-left: 15px;">person_outline</mat-icon>-->
+
+    <!--<mat-icon class="example-icon" style="margin-left: 15px;">exit_to_app</mat-icon>-->
+
+  <!--</mat-toolbar-row>-->
+<!--</mat-toolbar>-->
+
+<!--<mat-toolbar color="white">-->
+  <!--<mat-toolbar-row style="margin: 0px; padding: 0px;">-->
+    <!--<mat-tab-group  animationDuration="0ms" style="margin: 0px; padding: 0px; height: 70px;">-->
+      <!--<mat-tab label="Кассовая книга" style="height: 70px;"></mat-tab>-->
+      <!--<mat-tab label="Журнал операций" style="height: 70px;"></mat-tab>-->
+      <!--<mat-tab label="Денежный переводы" style="height: 70px;"></mat-tab>-->
+      <!--<mat-tab label="РРО" style="height: 70px;"></mat-tab>-->
+    <!--</mat-tab-group>-->
+  <!--</mat-toolbar-row>-->
+<!--</mat-toolbar>-->
+
+
+<mat-toolbar color="primary">
+
   <mat-toolbar-row>
-    <span>Most</span>
 
+    <span style="margin-right: 35px;">Mosst logo</span>
 
-
-
+    <button mat-button>Кассовая книга</button>
+    <button mat-button>Журнал операций</button>
+    <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/payment-acceptance'">Прием платежей</button>
+    <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/device-rro'">РРО</button>
 
     <span class="example-spacer"></span>
 
-    <!--<button mat-button [matMenuTriggerFor]="menu">{{lang}}</button>-->
-    <!--<mat-menu #menu="matMenu">-->
-      <!--<button mat-menu-item (click)="setLang('Item 1');">Item 1</button>-->
-      <!--<button mat-menu-item (click)="setLang('Item 2');">Item 2</button>-->
-      <!--<button mat-menu-item (click)="setLang('Item 3');">Item 3</button>-->
-    <!--</mat-menu>-->
+    <button mat-button>RU</button>
 
-    <mat-icon class="example-icon" style="margin-left: 15px;">person_outline</mat-icon>
+    <button mat-icon-button style="margin-left: 0px; margin-right: 15px;">
+      <mat-icon class="example-icon">person_outline</mat-icon>
+    </button>
 
-    <mat-icon class="example-icon" style="margin-left: 15px;">exit_to_app</mat-icon>
+    <button mat-icon-button style="margin-left: 15px; margin-right: 15px;" (click)="login();">
+      <mat-icon class="example-icon">exit_to_app</mat-icon>
+    </button>
 
   </mat-toolbar-row>
-</mat-toolbar>
 
-<mat-toolbar color="white" style="zoom: 75%;">
-  <mat-toolbar-row style="margin: 0px; padding: 0px;">
-    <mat-tab-group  animationDuration="0ms" style="margin: 0px; padding: 0px; height: 70px;">
-      <mat-tab label="Кассовая книга" style="height: 70px;"></mat-tab>
-      <mat-tab label="Журнал операций" style="height: 70px;"></mat-tab>
-      <mat-tab label="Денежный переводы" style="height: 70px;"></mat-tab>
-      <mat-tab label="РРО" style="height: 70px;"></mat-tab>
-    </mat-tab-group>
-  </mat-toolbar-row>
 </mat-toolbar>
