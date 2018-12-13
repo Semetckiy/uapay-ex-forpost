@@ -66,7 +66,7 @@ mat-card:hover {
 }
 
 .z-depth:hover {
-  background-color: #8e9da5;
+  background-color: #3F51B5;
   color: white;
   box-shadow: 0 8px 8px rgba(10,16,20,.24), 0 0 8px rgba(10,16,20,.12) !important;
   transform: translate3d(0,0,0);

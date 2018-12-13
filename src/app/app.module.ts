@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -12,8 +12,17 @@ import {
   MatToolbarModule,
   MatMenuModule,
   MatTabsModule,
-  MatListModule
+  MatListModule,
+  MatTableModule,
+  MatSortModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule
 } from '@angular/material';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { StoreService } from './shared/store.service';
@@ -30,6 +39,12 @@ import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
 import { PaComponent } from './pages/payment-acceptance/component/index/pa.component';
 import { PaCreateComponent } from './pages/payment-acceptance/component/create/pa-create.component';
 
+import { TlComponent } from './pages/transaction-log/components/index/tl.component';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
 
 @NgModule({
   declarations: [
@@ -38,7 +53,8 @@ import { PaCreateComponent } from './pages/payment-acceptance/component/create/p
     HeaderComponent,
     DeviceRroComponent,
     PaComponent,
-    PaCreateComponent
+    PaCreateComponent,
+    TlComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +71,19 @@ import { PaCreateComponent } from './pages/payment-acceptance/component/create/p
     MatMenuModule,
     MatTabsModule,
     MatListModule,
+    MatTableModule,
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    PerfectScrollbarModule,
     AppRoutingModule
   ],
   providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
     AuthenticationValidators,
     AuthenticationService,
     StoreService

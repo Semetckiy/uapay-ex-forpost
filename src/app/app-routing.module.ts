@@ -5,6 +5,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { DeviceRroComponent } from './pages/device-rro/device-rro.component';
 import { PaComponent } from './pages/payment-acceptance/component/index/pa.component';
 import { PaCreateComponent } from './pages/payment-acceptance/component/create/pa-create.component';
+import { TlComponent } from './pages/transaction-log/components/index/tl.component';
 
 const ROUTES = [
   { path: '',                           component: LayoutComponent },
@@ -12,6 +13,7 @@ const ROUTES = [
   { path: 'device-rro',                 component: DeviceRroComponent },
   { path: 'payment-acceptance',         component: PaComponent },
   { path: 'payment-acceptance/create',  component: PaCreateComponent },
+  { path: 'transaction-log',            component: TlComponent },
   { path: '**',                         component: LayoutComponent }
 ];
 

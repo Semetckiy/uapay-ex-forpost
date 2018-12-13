@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarComponent,
+  PerfectScrollbarDirective
+} from 'ngx-perfect-scrollbar';
 import { StoreService } from '../../shared/store.service';
 
 @Component({
@@ -11,6 +16,8 @@ import { StoreService } from '../../shared/store.service';
 export class DeviceRroComponent implements OnInit {
 
   selectedTab = 'item_1';
+
+  public config: PerfectScrollbarConfigInterface = {};
 
   constructor(
     private store: StoreService,

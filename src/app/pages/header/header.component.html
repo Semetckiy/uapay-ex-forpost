@@ -41,7 +41,7 @@
     <span style="margin-right: 35px;">Mosst logo</span>
 
     <button mat-button>Кассовая книга</button>
-    <button mat-button>Журнал операций</button>
+    <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/transaction-log'">Журнал операций</button>
     <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/payment-acceptance'">Прием платежей</button>
     <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/device-rro'">РРО</button>
 
