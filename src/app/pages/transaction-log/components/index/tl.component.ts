@@ -6,16 +6,17 @@ import { FormControl } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
+  date: string;
   position: number;
   weight: number;
   symbol: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 5900986574, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 5900988945, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 5900982596, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 5900989821, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5900986574, name: 'Hydrogen', date: '12/12/2018', weight: 1.0079, symbol: 'H'},
+  {position: 5900988945, name: 'Helium', date: '12/11/2018', weight: 4.0026, symbol: 'He'},
+  {position: 5900982596, name: 'Lithium', date: '12/10/2018', weight: 6.941, symbol: 'Li'},
+  {position: 5900989821, name: 'Beryllium', date: '12/12/2018', weight: 9.0122, symbol: 'Be'},
   // {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
   // {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
   // {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
@@ -43,7 +44,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class TlComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['select', 'position', 'name', 'date', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
 
