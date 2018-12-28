@@ -5,34 +5,40 @@ import { MatSort, MatTableDataSource } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
 export interface PeriodicElement {
-  name: string;
+  // name: string;
+  // date: string;
+  // position: number;
+  // weight: number;
+  // symbol: string;
+
+  id: number;
+  type: string;
+  typeOper: string;
   date: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  amountIn: number;
+  amountOut: number;
+  commIn: number;
+  commOut: number;
+  cashier: string;
+  rroSerial: string;
+  rroNumber: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 5900986574, name: 'Hydrogen', date: '12/12/2018', weight: 1.0079, symbol: 'H'},
-  {position: 5900988945, name: 'Helium', date: '12/11/2018', weight: 4.0026, symbol: 'He'},
-  {position: 5900982596, name: 'Lithium', date: '12/10/2018', weight: 6.941, symbol: 'Li'},
-  {position: 5900989821, name: 'Beryllium', date: '12/12/2018', weight: 9.0122, symbol: 'Be'},
-  // {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  // {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  // {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  // {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  // {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  // {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  // {position: 11, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  // {position: 12, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  // {position: 13, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  // {position: 14, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  // {position: 15, name: 'Boron', weight: 10.811, symbol: 'B'},
-  // {position: 16, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  // {position: 17, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  // {position: 18, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  // {position: 19, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  // {position: 20, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  { id: 5900989147, type: 'перевод мгновенный', typeOper: 'прием', date: '12/12/2018 10:56', amountIn: 152.00, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32654' },
+  { id: 5900989827, type: 'перевод мгновенный', typeOper: 'прием', date: '12/10/2018 17:15', amountIn: 256.89, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32655' },
+  { id: 5900989789, type: 'перевод мгновенный', typeOper: 'выдача', date: '12/11/2018 14:02', amountIn: 0.00, amountOut: -650.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32656' },
+  { id: 5900989827, type: 'перевод мгновенный', typeOper: 'возврат', date: '12/01/2018 22:10', amountIn: 0.00, amountOut: -4550.89, commIn: 0.00, commOut: -15.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32657' },
+  { id: 5900989456, type: 'перевод мгновенный', typeOper: 'прием', date: '12/24/2018 09:36', amountIn: 152.00, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32658' },
+  { id: 5900989369, type: 'перевод мгновенный', typeOper: 'выдача', date: '12/06/2018 16:32', amountIn: 0.00, amountOut: -150.00, commIn: 0.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32659' },
+  { id: 5900989123, type: 'перевод мгновенный', typeOper: 'прием', date: '12/01/2018 16:23', amountIn: 1560.80, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32660' },
+  { id: 5900989521, type: 'перевод мгновенный', typeOper: 'прием', date: '12/12/2018 09:12', amountIn: 301.42, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32661' },
+  { id: 5900989522, type: 'перевод мгновенный', typeOper: 'возврат', date: '12/15/2018 12:01', amountIn: 0.00, amountOut: -350.25, commIn: 0.00, commOut: -15.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32662' },
+  { id: 5900989453, type: 'перевод мгновенный', typeOper: 'прием', date: '12/12/2018 10:31', amountIn: 450.00, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32663' },
+  { id: 5900989854, type: 'перевод мгновенный', typeOper: 'возврат', date: '12/05/2018 15:49', amountIn: 0.00, amountOut: -253.12, commIn: 0.00, commOut: -15.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32664' },
+  { id: 5900989745, type: 'перевод мгновенный', typeOper: 'прием', date: '12/12/2018 10:56', amountIn: 37.00, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32665' },
+  { id: 5900989652, type: 'перевод мгновенный', typeOper: 'прием', date: '12/12/2018 10:57', amountIn: 110.01, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32666' },
+  { id: 5900989194, type: 'перевод мгновенный', typeOper: 'прием', date: '12/12/2018 16:26', amountIn: 162.00, amountOut: 0.00, commIn: 15.00, commOut: 0.00, cashier: 't.test', rroSerial: 'AT042000052', rroNumber: '32667' }
 ];
 
 
@@ -44,7 +50,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class TlComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'position', 'name', 'date', 'weight', 'symbol'];
+  displayedColumns: string[] = ['select', 'id', 'type', 'typeOper', 'date', 'amountIn', 'amountOut', 'commIn', 'commOut', 'cashier', 'rroSerial', 'rroNumber'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
 
@@ -92,6 +98,10 @@ export class TlComponent implements OnInit {
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  getTotalCost(coll) {
+    return this.dataSource.data.map(t => t[coll]).reduce((acc, value) => acc + value, 0);
   }
 
 }

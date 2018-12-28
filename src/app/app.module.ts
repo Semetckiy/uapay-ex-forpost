@@ -41,6 +41,10 @@ import { PaCreateComponent } from './pages/payment-acceptance/component/create/p
 
 import { TlComponent } from './pages/transaction-log/components/index/tl.component';
 
+import { NavPanelComponent } from './pages/cash-book/components/nav-panel/nav-panel.component';
+import { PkoComponent } from './pages/cash-book/components/pko/pko.component';
+import { RkoComponent } from './pages/cash-book/components/rko/rko.component';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -55,6 +59,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PaComponent,
     PaCreateComponent,
     TlComponent,
+    NavPanelComponent,
+    PkoComponent,
+    RkoComponent
   ],
   imports: [
     BrowserModule,

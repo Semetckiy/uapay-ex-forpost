@@ -1,0 +1,29 @@
+.cb-layout {
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 100%;
+}
+
+.mat-list-item {
+  float: right;
+}
+
+.btn-tab {
+  width: 100%;
+  border-radius: 0px;
+}
+
+.btn-tab:focus {
+  outline: none;
+  border: 0;
+}
+
+.cb-col-10 {
+  padding-left: 0px;
+  margin-top: 14px;
+}
+
+.cb-card {
+  border-radius: 0px;
+  height: 100%
+}

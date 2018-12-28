@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<!--<div class="row">-->
+  <!--<div class="col-2">-->
+
+    <!--<mat-nav-list style="margin-left: 15px;">-->
+      <!--<mat-list-item style="border-bottom: 2px solid #3f51b5; height: 40px;">-->
+        <!--<a [routerLink]="['/home']" >Home</a>-->
+      <!--</mat-list-item>-->
+      <!--<mat-list-item>-->
+        <!--<a [routerLink]="['/about']">About</a>-->
+      <!--</mat-list-item>-->
+      <!--<mat-list-item>-->
+        <!--<a [routerLink]="['/contact']">Contact Us</a>-->
+      <!--</mat-list-item>-->
+    <!--</mat-nav-list>-->
+
+  <!--</div>-->
+  <!--<div class="col-10">-->
+
+    <!--sdfsdf-->
+
+  <!--</div>-->
+<!--</div>-->
+
+<div class="cb-layout">
+  <div class="row" style="margin: 0px; height: 100%">
+    <div class="col-12">
+
+      <div class="row" style="height: 100%;">
+        <div class="col-2" style="padding-left: 0px; padding-right: 0px;">
+
+          <mat-list>
+            <mat-list-item *ngFor="let tab of tabs;">
+              <button class="btn-tab" mat-raised-button [color]="tab.color" (click)="setSelectedTab(tab);">{{ tab.caption }}</button>
+            </mat-list-item>
+          </mat-list>
+
+        </div>
+        <div class="col-10 cb-col-10">
+          <mat-card class="cb-card" [ngSwitch]="selectedTab.id">
+
+            <app-pko *ngSwitchCase="'1'"></app-pko>
+
+            <app-rko *ngSwitchCase="'2'"></app-rko>
+
+            <app-pko *ngSwitchCase="'3'"></app-pko>
+
+          </mat-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

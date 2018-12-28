@@ -38,9 +38,9 @@
 
   <mat-toolbar-row>
 
-    <span style="margin-right: 35px;">Mosst logo</span>
+    <!--<span style="margin-right: 35px;">Mosst logo</span>-->
 
-    <button mat-button>Кассовая книга</button>
+    <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/cash-book'">Кассовая книга</button>
     <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/transaction-log'">Журнал операций</button>
     <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/payment-acceptance'">Прием платежей</button>
     <button mat-button [routerLinkActive]="['menu-item-active']" [routerLink]="'/device-rro'">РРО</button>
